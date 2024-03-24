@@ -8,7 +8,17 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-//connect to DB
+//Middlewares
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(bodyParser.json());
+
+//Routes
+app.get('/', (req, res) => {
+    res.send("Hello world");
+});
+
+//Connect to DB
 mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
