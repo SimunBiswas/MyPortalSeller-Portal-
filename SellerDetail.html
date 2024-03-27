@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revogue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(244, 245, 241);
+            color: #6e0656;
+        }
+
+        /* Apply responsive font size */
+        @media(max-width:998px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        .a {
+            width: 90%; /* Adjusted width for responsiveness */
+            margin: 2% auto; /* Center the form */
+            font-size: 20px;
+            background-color: rgb(178, 230, 73); 
+            padding: 3%; /* Added padding */
+            box-shadow: 0 0 10px rgba(167, 43, 43, 0.1); /* Added shadow */
+        }
+
+        /* Adjustments for table layout */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table input {
+            width: calc(100% - 30px); /* Adjusted input width */
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #450135;
+            padding: 5px 15px; /* Adjusted padding */
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px; /* Adjusted padding */
+        }
+
+        th {
+            background-color: #e8dada;
+        }
+
+        /* Adjustments for checkboxes and labels */
+        input[type="checkbox"] {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        label {
+            vertical-align: middle;
+        }
+
+        /* Adjustments for submit button */
+        button[type="submit"] {
+            width: 10%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Added responsiveness for small screens */
+        @media(max-width: 600px) {
+            .a {
+                width: 95%; /* Adjusted width for small screens */
+            }
+        }
+        /* Change color of headings */
+        h1,
+        b {
+            color: #6e0656;
+        }
+
+    </style>
+</head>
+
+<body>
+  <form action="" class="a" id="myForm" onsubmit="return validateForm()">
+    <div class="">
+        <div align="center" class="">
+            <img class="" src="revogue2.jpg" alt="" height="100px" width="200px" /></div>
+
+        <h1 class="" tabindex="0" ><span>Revogue Marketplace</span></h1>
+
+
+        <div class="sg-header-hook-2"></div>
+    </div>
+
+    <b>1.Seller Details:</b>
+    <table>
+      <tr>
+        <td><label for="firstName">First Name:</label></td>
+        <td><input type="text" name="firstName" id="firstName" required></td>
+    </tr>
+    <tr>
+        <td><label for="lastName">Last Name:</label></td>
+        <td><input type="text" name="lastName" id="lastName" required></td>
+    </tr>
+    <tr>
+        <td><label for="jobTitle">Job Title:</label></td>
+        <td><input type="text" name="jobTitle" id="jobTitle" required></td>
+    </tr>
+    <tr>
+        <td><label for="email">Email Address:</label></td>
+        <td><input type="email" name="email" id="email" required></td>
+    </tr>
+    <tr>
+        <td><label for="phoneNumber">Phone Number:</label></td>
+        <td><input type="tel" name="phoneNumber" id="phoneNumber" required></td>
+    </tr>
+    <tr>
+        <td><label for="companyName">Company Name:</label></td>
+        <td><input type="text" name="companyName" id="companyName" required></td>
+    </tr>
+    <tr>
+        <td><label for="gstNumber">GST Number:</label></td>
+        <td><input type="text" name="gstNumber" id="gstNumber" required></td>
+    </tr>
+    <tr>
+        <td><label for="locationGst">Location As per GST:</label></td>
+        <td><input type="text" name="locationGst" id="locationGst" required></td>
+    </tr>
+    </table>
+    <b>2. What is the main product line that you sell? *</b><br><br/>
+        <input type="checkbox" name="productLine" value="Clothing & Fashion"> Clothing & Fashion <br>
+        <input type="checkbox" name="productLine" value="Handbags & Accessories"> Handbags & Accessories <br>
+        <input type="checkbox" name="productLine" value="Home Textiles"> Home Textiles <br>
+        <input type="checkbox" name="productLine" value="Jewellery"> Jewellery <br>
+        <input type="checkbox" name="productLine" value="Foot Wear"> Foot Wear <br>
+        <input type="checkbox" name="productLine" id="otherProductLine" onchange="toggleOtherInput()"> Other - Write In (Required) <br>
+        <input type="text" id="otherProductLineInput" name="otherProductLineInput" style="display: none;" placeholder="Enter other product line">
+        <br><br>
+
+        <b>3. Do you operate and fulfill your products from India? *</b><br><br/>
+        <input type="checkbox" name="operateFromIndia" value="Yes"> Yes <br>
+        <input type="checkbox" name="operateFromIndia" value="No"> No <br><br>
+
+        <b>4. What is your primary sales channel? *</b><br><br/>
+        <input type="checkbox" name="salesChannel" value="Online Store"> Online Store <br>
+        <input type="checkbox" name="salesChannel" value="Marketplaces"> Marketplaces <br>
+        <input type="checkbox" name="salesChannel" value="Retail Store"> Retail Store <br>
+        <input type="checkbox" name="salesChannel" value="Wholesale / Distribution"> Wholesale / Distribution <br>
+        <input type="checkbox" name="salesChannel" id="socialPlatforms"> Social Platforms - Write In _________ 
+        <input type="text" name="socialPlatformsInput" id="socialPlatformsInput" style="display: none;"><br>
+        <input type="checkbox" name="salesChannel" id="otherSales"> Other -_________ Where are you selling* <br>
+        <input type="text" name="otherSalesInput" id="otherSalesInput" style="display: none;"><br><br>
+
+        <b>5. Where are you Selling?</b> <br><br/>
+        <input type="checkbox" name="sellingLocations" value="On my own website"> On my own website <br>
+        <input type="checkbox" name="sellingLocations" value="Amazon"> Amazon <br>
+        <input type="checkbox" name="sellingLocations" value="Flipkart"> Flipkart <br>
+        <input type="checkbox" name="sellingLocations" value="Myntra"> Myntra <br>
+        <input type="checkbox" name="sellingLocations" value="Ajio"> Ajio <br>
+        <input type="checkbox" name="sellingLocations" value="Nykaa"> Nykaa <br>
+        <input type="checkbox" name="sellingLocations" value="Facebook"> Facebook <br>
+        <input type="checkbox" name="sellingLocations" value="Instagram"> Instagram <br>
+        <input type="checkbox" name="sellingLocations" value="WhatsApp"> WhatsApp <br>
+        <input type="checkbox" name="sellingLocations" value="Other marketplace"> Other marketplace <br><br>
+
+        <label for="averageSellingPrice"><b>6. What is the Average Selling Price for the brand? *</b></label><br><br/>
+        <input type="text" id="averageSellingPrice" name="averageSellingPrice" required>
+        <br><br>
+
+        <b>7. How long has the brand been active? *</b><br><br/>
+        <input type="checkbox" name="brandActiveDuration" value="Less than 6 months"> Less than 6 months <br>
+        <input type="checkbox" name="brandActiveDuration" value="1-2 years"> 1-2 years <br>
+        <input type="checkbox" name="brandActiveDuration" value="2+ years"> 2+ years <br>
+        <input type="checkbox" name="brandActiveDuration" value="5+ years"> 5+ years <br><br>
+
+        <b>8. What is the target audience for your brand? *</b><br><br/>
+        <input type="checkbox" name="targetAudience" value="0-3 years"> 0-3 years <br>
+        <input type="checkbox" name="targetAudience" value="3-5 years"> 3-5 years <br>
+        <input type="checkbox" name="targetAudience" value="5+ years"> 5+ years<br>
+        <input type="checkbox" name="targetAudience" value="18-25 years"> 18-25 years<br>
+        <input type="checkbox" name="targetAudience" value="25-35 years"> 25-35 years<br>
+        <input type="checkbox" name="targetAudience" value="35-45 years"> 35-45 years<br>
+        <input type="checkbox" name="targetAudience" value="45+ years"> 45+ years<br>
+        <input type="checkbox" name="targetAudience" id="otherAudienceCheckbox" onchange="toggleOtherAudience()"> Other:_______<br>
+        <input type="text" name="otherAudience" id="otherAudienceInput" style="display: none;" placeholder="Specify other audience"><br><br>
+
+        <label for=""><b>9. Any other detail you want to share with us.</b></label><br><br/>
+        <textarea name="otherDetails" id="otherDetails" cols="40" rows="5"></textarea><br><br/>
+
+        <p>10. Please take a few moments to review REVOGUE's Seller Privacy Notice: <b><a href="https://example.com/privacy_policy"
+                    target="_blank">Policy Link to prepare</a></b></p>
+
+        <input type="checkbox" id="agree" required>
+        <label for="agree">I've read and agree to REVOGUE's Seller Privacy Notice</label><br><br />
+
+        <button type="submit">Submit</button>
+</form>
+
+
+<script>
+  function validateForm() {
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var jobTitle = document.getElementById("jobTitle").value;
+      var email = document.getElementById("email").value;
+      var phoneNumber = document.getElementById("phoneNumber").value;
+      var companyName = document.getElementById("companyName").value;
+      var gstNumber = document.getElementById("gstNumber").value;
+      var locationGst = document.getElementById("locationGst").value;
+      var operateFromIndia = document.querySelector('input[name="operateFromIndia"]:checked');
+      var sellingChannels = document.querySelectorAll('input[name="sellingChannel"]:checked');
+      var averageSellingPrice = document.getElementById("averageSellingPrice").value;
+      var brandActivity = document.querySelector('input[name="brandActivity"]:checked');
+      var targetAudience = document.querySelectorAll('input[name="targetAudience"]:checked');
+      var otherAudience = document.getElementById("otherAudience").value;
+
+
+      if (firstName.trim() === "") {
+          alert("Please enter your First Name");
+          return false;
+      }
+
+      if (lastName.trim() === "") {
+          alert("Please enter your Last Name");
+          return false;
+      }
+
+      if (jobTitle.trim() === "") {
+          alert("Please enter your Job Title");
+          return false;
+      }
+
+      if (email.trim() === "") {
+          alert("Please enter your Email Address");
+          return false;
+      }
+
+      // You can add more specific validation for email format here
+
+      if (phoneNumber.trim() === "") {
+          alert("Please enter your Phone Number");
+          return false;
+      }
+
+      if (companyName.trim() === "") {
+          alert("Please enter your Company Name");
+          return false;
+      }
+
+      if (gstNumber.trim() === "") {
+          alert("Please enter your GST Number");
+          return false;
+      }
+
+      if (locationGst.trim() === "") {
+          alert("Please enter your Location as per GST");
+          return false;
+      }
+      if (!operateFromIndia) {
+          alert("Please indicate whether you operate and fulfill your products from India");
+          return false;
+      }
+      if (sellingChannels.length === 0) {
+          alert("Please select at least one selling channel");
+          return false;
+      }
+      if (averageSellingPrice.trim() === "") {
+          alert("Please enter the Average Selling Price for the brand");
+          return false;
+      }
+      if (!brandActivity) {
+          alert("Please select how long the brand has been active");
+          return false;
+      }
+
+      if (targetAudience.length === 0 && otherAudience.trim() === "") {
+          alert("Please select the target audience for your brand or specify 'Other'");
+          return false;
+      }
+      // Additional validation logic can be added here
+
+  return true; // Form submission allowed if all validations pass
+
+  }
+
+
+
+  function validateForm() {
+      // Validation logic
+  }
+
+  function toggleOtherInput() {
+      var otherCheckbox = document.getElementById("otherProductLine");
+      var otherInput = document.getElementById("otherProductLineInput");
+
+      if (otherCheckbox.checked) {
+          otherInput.style.display = "inline-block";
+          otherInput.required = true; // Make the input required
+      } else {
+          otherInput.style.display = "none";
+          otherInput.required = false; // Make the input not required
+      }
+  }
+
+
+  window.onload = function() {
+      var productLineQuestion = document.getElementById("productLineQuestion");
+      var productLineOptions = document.getElementById("productLineOptions");
+
+      productLineQuestion.innerHTML = "" + productLineQuestion.innerHTML + "";
+
+      var checkboxes = productLineOptions.querySelectorAll("input[type='checkbox']");
+      checkboxes.forEach(function(checkbox) {
+          var label = checkbox.nextElementSibling;
+          label.innerHTML = "" + label.innerHTML + "";
+      });
+  };
+
+  
+  function validateForm() {
+      // Validation logic
+  }
+
+  window.onload = function() {
+      // Show input fields for social platforms and other sales channels if corresponding checkboxes are checked
+      document.getElementById("socialPlatforms").addEventListener("change", function() {
+          document.getElementById("socialPlatformsInput").style.display = this.checked ? "block" : "none";
+      });
+
+      document.getElementById("otherSales").addEventListener("change", function() {
+          document.getElementById("otherSalesInput").style.display = this.checked ? "block" : "none";
+      });
+  };
+
+  function submitForm(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+  
+      // Check if the user has agreed to the privacy notice
+      if (document.getElementById("agree").checked) {
+        alert("Form submitted successfully!");
+        // You can add additional actions here, such as sending the form data to a server
+      } else {
+        alert("Please agree to the privacy notice.");
+      }
+    }
+</script>
+</body>
+
+</html>
