@@ -1,0 +1,16 @@
+
+nav ul li{
+    list-style-type: none;
+    text-decoration: none;
+    font-size:23px;
+    text-align: left;
+
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    display:block;
+}
+nav ul li a:hover{
+    background-color:lightgray;
+}
