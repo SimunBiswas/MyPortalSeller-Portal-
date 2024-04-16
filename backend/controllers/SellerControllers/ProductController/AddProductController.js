@@ -1,7 +1,7 @@
 // logic to addproduct using Prodect model
 
 
-const Product = require('../../../Database/Models/CommonModel/productSchema');
+const Product = require('../../../Database/Models/CommonModel/productSchema').default;
 
 const addProduct = async (req, res) => {
     try {
