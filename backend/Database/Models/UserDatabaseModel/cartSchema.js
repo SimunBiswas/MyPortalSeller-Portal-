@@ -1,6 +1,6 @@
 // have to create cart model like product deatil,userid, etc
 import mongoose from 'mongoose';
-const { Schema } = mongoose;
+
 
 const cartSchema = new mongoose.Schema({
     userId: {
