@@ -13,6 +13,7 @@ class Apifeatures {
                 { name: { $regex: `.*${keyword}.*`, $options: "i" } },
                 { category: { $regex: `.*${keyword}.*`, $options: "i" } },
                 { description: { $regex: `.*${keyword}.*`, $options: "i" } },
+                { brand: { $regex: `.*${keyword}.*`, $options: "i" } },
             ],
         });
     }
