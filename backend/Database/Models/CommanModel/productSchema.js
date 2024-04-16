@@ -1,18 +1,58 @@
-// have to create product model for product deatil
-// details like rating ,comments , brand name, category, offer, etc
-
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const productSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    brand: {
+        type: String,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
+        default: 0
+    },
+    comments: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User' // User model 
+            },
+            text: String,
+            rating: Number,
+            createdAt: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
+    offers: [
+        {
+            offerText: String,
+            discount: Number, // Percentage discount
+            validUntil: Date
+        }
+    ],
+    // Additional fields like stock quantity, dimensions, etc. can be added here
+});
 
-const ProductSchema = new Schema({
-    productName: {},
-    brandName: {},
-    category: {},
-    offer: {},
-    ratings: {},
-    comments: {}
+const Product = mongoose.model('Product', productSchema);
 
-})
-
-module.export = mongoose.model('Order', ProductSchema);
+module.exports = Product;
