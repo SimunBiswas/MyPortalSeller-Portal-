@@ -1,6 +1,6 @@
 //Ajay Borde 16/04
 import React from 'react'
-import './Banner3.css';
+import '../../Components/styles/Banner3.css';
 import product from './Images/product1.png';
 const Banner3 = () => {
   return (
