@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
 import orders from "./routes/OrderRoute/orderRoute.js"
+import ProductRouter from "./routes/ProductRoute/productRoute.js";
 
 const app = express();
 
@@ -17,6 +18,9 @@ app.use(cors())
 
 //Routes
 app.use('/api/v6', orders);
+
+//Product Routes
+app.use('/api/v1/product',ProductRouter)
 
 
 
