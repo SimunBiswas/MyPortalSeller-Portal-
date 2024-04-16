@@ -13,27 +13,34 @@ import ReturnPolicy from "./Customer/pages/ReturnPolicy/ReturnPolicy";
 import ShippingInfo from "./Customer/pages/ShippingInfo/ShippingInfo";
 import TermAndCondition from "./Customer/pages/Terms&Conditions/TermAndCondition";
 import UserDashBoard from "./Customer/pages/UserDashboard/UserDashBoard";
+import Navbar from './Customer/Components/Navbar';
+import Footer from "./Customer/Components/Footer";
+
 function App() {
   return (
-    <>
+    <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/brands" element={<Brands />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/contectus" element={<Contectus />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/privecy&Policy" element={<PrivecyandPolicy />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/product/:id" element={<ProductDeatil />} />
-          <Route path="/returnPolicy" element={<ReturnPolicy />} />
-          <Route path="/shippingInfo" element={<ShippingInfo />} />
-          <Route path="/terms&conditions" element={<TermAndCondition />} />
-          <Route path="/userdashboard" element={<UserDashBoard />} />
-        </Routes>
+        <Navbar />
+        <div className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/brands" element={<Brands />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/contectus" element={<Contectus />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/privecy&Policy" element={<PrivecyandPolicy />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<ProductDeatil />} />
+            <Route path="/returnPolicy" element={<ReturnPolicy />} />
+            <Route path="/shippingInfo" element={<ShippingInfo />} />
+            <Route path="/terms&conditions" element={<TermAndCondition />} />
+            <Route path="/userdashboard" element={<UserDashBoard />} />
+          </Routes>
+        </div>
+        <Footer />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
