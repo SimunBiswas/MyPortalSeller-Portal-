@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import { dbConnection } from "./DB/dbConnection.js";
+import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
+import orders from "./routes/OrderRoute/orderRoute.js"
 
 const app = express();
 
@@ -14,9 +15,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 //Routes
-app.get('/', (req, res) => {
-    res.send("Hello world");
-});
+app.use('/api/v6', orders);
 
 
 
@@ -24,5 +23,5 @@ app.listen((PORT, ()=> console.log(`Server is Running On ${PORT}`)))
 
 
 //Database Connection
-
 dbConnection()
+
