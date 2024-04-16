@@ -1,4 +1,6 @@
 // have to creating logic for addproduct using Prodect model
+const Product = require('../../../Database/Models/CommonModel/productSchema')
+
 exports.editProduct = async(req,resp)=>{
     let product = await Product.findById(req.params.id);
     if(!product){

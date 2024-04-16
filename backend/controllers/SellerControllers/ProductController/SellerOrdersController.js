@@ -1,6 +1,6 @@
 // have to create logic for SellerOrder seller id and orderModel
 
-const Order = require('../Models/orderModel');
+const Order = require('../../../Database/Models/CommonModel/OrderSchema');
 
 
 
@@ -40,9 +40,6 @@ exports.allOrdersByAdmin = async (req, resp) => {
             });
         }
         
-
-
-
         resp.status(200).json({
             success: true,
             orders,
