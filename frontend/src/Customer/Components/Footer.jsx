@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer bg-dark text-white mt-5 p-5">
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -18,7 +18,7 @@ function Footer() {
           <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
             <div className="footer__widget">
               <h6>Shopping</h6>
-              <ul>
+              <ul className='list-unstyled'>
                 <li><Link to="/clothing-store">Clothing Store</Link></li>
                 <li><Link to="/trending-shoes">Trending Shoes</Link></li>
                 <li><Link to="/accessories">Accessories</Link></li>
@@ -29,7 +29,7 @@ function Footer() {
           <div className="col-lg-2 col-md-3 col-sm-6">
             <div className="footer__widget">
               <h6>Shopping</h6>
-              <ul>
+              <ul className='list-unstyled'>
                 <li><Link to="/contact-us">Contact Us</Link></li>
                 <li><Link to="/payment-methods">Payment Methods</Link></li>
                 <li><Link to="/delivery">Delivery</Link></li>
