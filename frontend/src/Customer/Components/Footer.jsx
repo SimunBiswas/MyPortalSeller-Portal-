@@ -38,7 +38,7 @@ function Footer() {
             </div>
             <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
               <div className="footer__widget">
-                <h6>Shopping</h6>
+                <h4>ReVogue</h4>
                 <ul className="list-unstyled">
                   <li>
                     <Link to="/clothing-store" className="text-reset">
@@ -65,7 +65,7 @@ function Footer() {
             </div>
             <div className="col-lg-2 col-md-3 col-sm-6">
               <div className="footer__widget">
-                <h6>Shopping</h6>
+                <h4>Shopping</h4>
                 <ul className="list-unstyled">
                   <li>
                     <Link to="/contact-us" className="text-reset">
@@ -92,7 +92,7 @@ function Footer() {
             </div>
             <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
               <div className="footer__widget">
-                <h6>NewLetter</h6>
+                <h4>NewLetter</h4>
                 <div className="footer__newslatter">
                   <p>
                     Be the first to know about new arrivals, look books, sales &
