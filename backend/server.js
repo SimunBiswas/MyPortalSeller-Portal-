@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import { dbConnection } from "./DB/dbConnection.js";
+import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
+
 
 const app = express();
 
@@ -24,5 +25,5 @@ app.listen((PORT, ()=> console.log(`Server is Running On ${PORT}`)))
 
 
 //Database Connection
-
 dbConnection()
+
