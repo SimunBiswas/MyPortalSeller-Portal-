@@ -1,0 +1,35 @@
+import jwt from 'jsonwebtoken'
+import secretKey from '../jwtConfig.js'
+
+
+
+export const generateToken = (user)=> {
+ const payload = {
+    id:user_id,
+    email:user.email,
+    username:user.username,
+    sellerName:user.sellerName
+ };
+ return jwt.sign(payload,secretKey,{expiresIn:'1h'});
+}
+
+
+export const generaterefreshToken = (user)=> {
+ const payload = {
+    id:user_id,
+    email:user.email,
+    username:user.username,
+    sellerName:user.sellerName
+ };
+ return jwt.sign(payload,secretKey,{expiresIn:'7h'});
+}
+
+
+export const verifyToken =(token)=>{
+    return jwt.verify(token,secretKey)
+}
+
+
+
+
+

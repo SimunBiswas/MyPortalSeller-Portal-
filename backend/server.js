@@ -5,6 +5,8 @@ import cors from "cors";
 import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
 import orders from "./routes/OrderRoute/orderRoute.js"
 import ProductRouter from "./routes/ProductRoute/productRoute.js";
+import Signup from "./routes/UserRoute/userSignUpRoute.js";
+import Login from "./routes/UserRoute/userLoginRoute.js";
 
 const app = express();
 
@@ -20,7 +22,14 @@ app.use(cors())
 app.use('/api/v6', orders);
 
 //Product Routes
-app.use('/api/v1/product',ProductRouter)
+app.use('/api/v6/product',ProductRouter)
+
+
+//User signUp Route
+app.use('/api/v6/user',Signup)
+
+//User Login Route
+app.use('/api/v6/user',Login)
 
 
 
