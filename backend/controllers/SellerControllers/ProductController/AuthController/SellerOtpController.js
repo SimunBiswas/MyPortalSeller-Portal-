@@ -117,7 +117,7 @@ export const verifyOtp = async (req, resp) => {
         resp.status(200).json({ message: "OTP verified successfully", Email: user.Email });
     } catch (error) {
         console.error(error);
-        return resp.status(500).json({ error: 'Internal Server Error' });
+        return resp.status(500).json({ error: 'Internal Server Error Api' });
     }
 };
 ``
