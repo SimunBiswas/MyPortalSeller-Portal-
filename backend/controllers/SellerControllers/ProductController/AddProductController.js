@@ -1,9 +1,11 @@
 // logic to addproduct using Prodect model
 
+import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
 
-const Product = require('../../../Database/Models/CommonModel/productSchema');
 
-const addProduct = async (req, res) => {
+
+
+export const addProduct = async (req, res) => {
     try {
         const { name, description, price, brand, category, image, rating, comments, offers } = req.body;
 
@@ -37,4 +39,4 @@ const addProduct = async (req, res) => {
     }
 };
 
-module.exports = { addProduct };
+
