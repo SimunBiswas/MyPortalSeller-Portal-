@@ -1,52 +1,118 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', //User model
-        required: true
+    // Shipping information
+    shippingInfo: {
+        address: {
+            type: String,
+            required: [true, "Please provide your shipping address"]
+        },
+        city: {
+            type: String,
+            required: [true, "Please provide your shipping address"]
+        },
+        state: {
+            type: String,
+            required: [true, "Please provide your shipping address"]
+        },
+        country: {
+            type: String,
+            required: [true, "Please provide your shipping address"]
+        },
+        pinCode: {
+            type: Number,
+            required: true
+        },
+        phoneNo: {
+            type: Number,
+            required: true
+        }
     },
-    products: [
+    // Ordered items
+    orderItems: [
         {
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product', // Product model
+            name: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
                 required: true
             },
             quantity: {
                 type: Number,
                 required: true
+            },
+            image: {
+                type: String,
+                required: true
+            },
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+                required: true
             }
         }
     ],
+    // User who placed the order
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    // Payment information
+    paymentInfo: {
+        id: {
+            type: String,
+            required: true
+        },
+        method: {
+            type: String,
+            required: true
+        },
+        status: {
+            type: String,
+            required: true,
+            default: "Pending"
+        }
+    },
+    // Date of payment
+    paidAt: {
+        type: Date,
+        required: true
+    },
+    // Prices
+    itemsPrice: {
+        type: Number,
+        default: 0
+    },
+    taxPrice: {
+        type: Number,
+        default: 0
+    },
+    shippingPrice: {
+        type: Number,
+        default: 0
+    },
     totalPrice: {
         type: Number,
-        required: true
+        default: 0
     },
-    shippingAddress: {
-        type: String,
-        required: true
-    },
-    paymentMethod: {
-        type: String,
-        required: true
-    },
+    // Order status
     orderStatus: {
         type: String,
-        enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'],
-        default: 'Pending'
+        required: true,
+        default: "Processing"
     },
-    // Additional fields like tracking information, timestamps, etc. can be added here
+    // Date when the order was delivered
+    deliveredAt: {
+        type: Date
+    },
+    // Date when the order was created
     createdAt: {
-        type: Date,
-        default: Date.now
-    },
-    updatedAt: {
         type: Date,
         default: Date.now
     }
 });
 
-const Order = mongoose.model('Order', orderSchema);
-
-module.exports = Order;
+module.exports = mongoose.model("Order", orderSchema);
