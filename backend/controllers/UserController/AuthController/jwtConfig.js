@@ -1,6 +1,7 @@
-import crypto from 'crypto'
+import dotenv from 'dotenv'
+dotenv.config()
 
- const secretKey = crypto.randomBytes(32).toString('hex');
+ export const secretKey = process.env.secretKey
 
- export default secretKey
+
 

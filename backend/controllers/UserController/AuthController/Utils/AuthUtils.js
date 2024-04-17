@@ -24,11 +24,6 @@ export const generaterefreshToken = (user)=> {
 }
 
 
-export const verifyToken =(token)=>{
-    return jwt.verify(token,secretKey)
-}
-
-
 
 
 

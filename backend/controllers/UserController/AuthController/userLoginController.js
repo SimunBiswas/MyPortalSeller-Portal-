@@ -24,7 +24,14 @@ export const LoginUser = async(req,res)=>{
               })
            }
            const token = generateToken(user)
-           res.status(200).json({user:user, token:token})
+           res.cookie('jwt', token, { httpOnly: true, secure: true });
+           const userData = await User.findOne({ email: email })('-password');
+   
+           return res.status(200).json({
+               success: true,
+               message: "Login success",
+               userData
+           });
 
            } catch (error) {
             res.status(400).json({
