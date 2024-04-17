@@ -69,7 +69,7 @@ const productSchema = new mongoose.Schema({
     {
       // User ID who left the review
       userId: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
       },
       // Review text

@@ -1,10 +1,10 @@
 // have to create logic for SellerOrder seller id and orderModel
 
-import Order from '../../../Database/Models/CommonModel/OrderSchema';
+import { Order } from "../../../Database/Models/CommonModel/OrderSchema.js";
 
 
 
-exports.getSingleOrderByadmin = async (req, resp) => {
+export const getSingleOrderByadmin = async (req, res) => {
     try {
         const orderId = req.params.id.trim();
         const order = await Order.findById(orderId).populate('user', 'name email');
@@ -27,7 +27,7 @@ exports.getSingleOrderByadmin = async (req, resp) => {
         });
     }
 };
-exports.allOrdersByAdmin = async (req, resp) => {
+export const allOrdersByAdmin = async (req, resp) => {
     try {
        
 

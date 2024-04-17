@@ -1,6 +1,6 @@
 // have to creat model for user to store user information
 import mongoose from 'mongoose';
-const { Schema } = mongoose;
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -65,9 +65,6 @@ const userSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
 
 
 export const User = mongoose.model("User",userSchema)
