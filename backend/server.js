@@ -20,7 +20,7 @@ app.use(cors())
 app.use('/api/v6', orders);
 
 //Product Routes
-app.use('/api/v6/product',ProductRouter)
+app.use('/api/v1/product',ProductRouter)
 
 
 

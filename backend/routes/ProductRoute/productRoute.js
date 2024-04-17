@@ -6,8 +6,8 @@ import { addProduct } from "../../controllers/SellerControllers/ProductControlle
 const ProductRouter = express.Router()
 
 
-ProductRouter.post('/addproduct',addProduct)
+ProductRouter.post('product/addproduct',addProduct)
 
-ProductRouter.delete('/deleteproduct/:id',deleteProduct)
+ProductRouter.delete('product/deleteproduct/:id',deleteProduct)
 
 export default ProductRouter

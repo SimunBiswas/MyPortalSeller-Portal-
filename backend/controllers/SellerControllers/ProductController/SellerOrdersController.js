@@ -1,6 +1,6 @@
 // have to create logic for SellerOrder seller id and orderModel
 
-const Order = require('../../../Database/Models/CommonModel/OrderSchema');
+import Order from '../../../Database/Models/CommonModel/OrderSchema';
 
 
 

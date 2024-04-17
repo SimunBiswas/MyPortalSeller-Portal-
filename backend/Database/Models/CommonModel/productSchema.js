@@ -61,6 +61,10 @@ const productSchema = new mongoose.Schema({
     min: 0,
     max: 5
   },
+  sellerId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref : 'seller'
+  },
   // Product reviews
   reviews: [
     {
