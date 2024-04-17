@@ -5,6 +5,7 @@ import cors from "cors";
 import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
 import orders from "./routes/OrderRoute/orderRoute.js"
 import ProductRouter from "./routes/ProductRoute/productRoute.js";
+import SellerRoute from "./routes/SellerRoute/sellerRoute.js";
 
 const app = express();
 
@@ -23,6 +24,9 @@ app.use('/api/v6', orders);
 app.use('/api/v1/product',ProductRouter)
 
 
+//Seller Login & SignUP Route
+
+app.use('api/v6/seller',SellerRoute)
 
 app.listen((PORT, ()=> console.log(`Server is Running On ${PORT}`)))
 
