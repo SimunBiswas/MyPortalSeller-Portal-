@@ -1,8 +1,8 @@
 
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import mongoose, { Schema } from 'mongoose';
 
-const productSchema = new Schema({
+
+const productSchema = new mongoose.Schema({
   // Product name
   name: {
     type: String,
@@ -66,7 +66,7 @@ const productSchema = new Schema({
     {
       // User ID who left the review
       userId: {
-        type: _Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User'
       },
       // Review text

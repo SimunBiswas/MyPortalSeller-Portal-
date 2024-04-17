@@ -1,6 +1,6 @@
 // have to creating logic for deleteproduct using Prodect model
 
-import { Product } from "../../../Database/Models/CommonModel/productSchema";
+import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
 
 export const deleteProduct = async (req, res) => {
   try {
