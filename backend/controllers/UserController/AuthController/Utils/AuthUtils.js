@@ -8,7 +8,6 @@ export const generateToken = (user)=> {
     id:user_id,
     email:user.email,
     username:user.username,
-    sellerName:user.sellerName
  };
  return jwt.sign(payload,secretKey,{expiresIn:'1h'});
 }
@@ -19,7 +18,7 @@ export const generaterefreshToken = (user)=> {
     id:user_id,
     email:user.email,
     username:user.username,
-    sellerName:user.sellerName
+
  };
  return jwt.sign(payload,secretKey,{expiresIn:'7h'});
 }
