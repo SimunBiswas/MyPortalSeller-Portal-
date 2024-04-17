@@ -1,9 +1,12 @@
 import express from "express";
+import { SellerSignUP } from "../../controllers/SellerControllers/ProductController/AuthController/ragistrationController.js";
+import { LoginSeller } from "../../controllers/SellerControllers/ProductController/AuthController/sellerLoginController.js";
 
 
-const Router = express.Router()
+const SellerRoute = express.Router()
 
 
-Router.get()
+SellerRoute.post('/register',SellerSignUP)
+SellerRoute.post('/login',LoginSeller)
 
-export default Router
+export default SellerRoute
