@@ -1,5 +1,5 @@
 // Import the Order model schema
-const Order = require('../../../Database/Models/CommanModel/OrderSchema');
+import Order from '../../../Database/Models/CommanModel/OrderSchema';
 
 // Controller function to create a new order
 exports.newOrder = async (req, resp) => {

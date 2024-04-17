@@ -1,19 +1,29 @@
-const Product = require('../../../Database/Models/CommonModel/productSchema')
+const Product = require('../../../Database/Models/CommonModel/productSchema');
 
-exports.getProductDetails = async (req, resp) => {
-    const product = await Product.find({_id: req.params.id})
-    if(product){
-        resp.status(200).json({
-            success:true,
-            message: "Product detail get success",
-            product,
-        })
-    }
-        else{
-            resp.status(201).json({
-                success:false,
-                message: "Product detail can't get success"
-            })
+exports.getProductDetails = async (req, res) => {
+    try {
+        // Find the product by ID
+        const product = await Product.findById(req.params.id);
+
+        // Check if the product exists
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                message: "Product not found"
+            });
         }
-    
-}
+
+        // Respond with the product details
+        res.status(200).json({
+            success: true,
+            message: "Product details retrieved successfully",
+            product
+        });
+    } catch (error) {
+        console.error("Error fetching product details:", error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        });
+    }
+};
