@@ -3,28 +3,24 @@
 import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
 
 
-
-
 export const addProduct = async (req, res) => {
     try {
-        const { name, description, price, brand, category, image, rating, comments, offers } = req.body;
-
-        // Checking if the product already exists
-        const existingProduct = await Product.findOne({ name });
-        if (existingProduct) {
-            return res.status(400).json({ message: 'Product already exists' });
-        }
+        const { sellerId, name, description, price, quantity, category, images, brand, model, specifications, ratings, reviews, discount } = req.body;
 
         const newProduct = new Product({
+            sellerId,
             name,
             description,
             price,
-            brand,
+            quantity,
             category,
-            image,
-            rating,
-            comments,
-            offers
+            images,
+            brand,
+            model,
+            specifications,
+            ratings,
+            reviews,
+            discount
         });
 
         // Saving the new product to the database
@@ -38,5 +34,3 @@ export const addProduct = async (req, res) => {
         res.status(500).json({ message: 'Failed to add product' });
     }
 };
-
-

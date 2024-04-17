@@ -1,8 +1,12 @@
-
 import mongoose, { Schema } from 'mongoose';
 
 
 const productSchema = new mongoose.Schema({
+  //seller Id
+  sellerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'seller'
+  },
   // Product name
   name: {
     type: String,
@@ -31,7 +35,6 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true
-    
   },
   // Product image URLs (at least one image required)
   images: {
@@ -60,10 +63,6 @@ const productSchema = new mongoose.Schema({
     default: 0,
     min: 0,
     max: 5
-  },
-  sellerId:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref : 'seller'
   },
   // Product reviews
   reviews: [
@@ -99,4 +98,4 @@ const productSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-export const Product = mongoose.model("Product",productSchema)
+export const Product = mongoose.model("Product", productSchema)
