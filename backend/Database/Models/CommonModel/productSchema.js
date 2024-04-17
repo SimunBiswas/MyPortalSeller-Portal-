@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 
+import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
@@ -70,7 +70,7 @@ const productSchema = new Schema({
     {
       // User ID who left the review
       userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: _Schema.Types.ObjectId,
         ref: 'User'
       },
       // Review text
@@ -99,4 +99,4 @@ const productSchema = new Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Product', productSchema);
+export const Product = mongoose.model("Product",productSchema)
