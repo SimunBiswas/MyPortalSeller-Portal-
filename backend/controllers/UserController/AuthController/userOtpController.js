@@ -1,4 +1,4 @@
-import User from "../../../Database/Models/UserDatabaseModel/userSchema";
+import { User} from "../../../Database/Models/UserDatabaseModel/userSchema";
 import transporter from "../../EmailService";
 import crypto from 'crypto';
 
