@@ -7,6 +7,7 @@ import orders from "./routes/OrderRoute/orderRoute.js"
 import ProductRouter from "./routes/ProductRoute/productRoute.js";
 import Signup from "./routes/UserRoute/userSignUpRoute.js";
 import Login from "./routes/UserRoute/userLoginRoute.js";
+import SellerRoute from "./routes/SellerRoute/sellerRoute.js";
 
 const app = express();
 
@@ -30,6 +31,9 @@ app.use('/api/v6/user',Signup)
 
 //User Login Route
 app.use('/api/v6/user',Login)
+
+//Seller Login & SignUP Route
+app.use('api/v6/seller',SellerRoute)
 
 
 
