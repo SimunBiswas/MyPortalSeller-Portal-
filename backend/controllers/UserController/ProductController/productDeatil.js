@@ -1,4 +1,4 @@
-const Product = require('../../../Database/Models/CommonModel/productSchema');
+import {Product} from '../../../Database/Models/CommonModel/productSchema';
 
 exports.getProductDetails = async (req, res) => {
     try {

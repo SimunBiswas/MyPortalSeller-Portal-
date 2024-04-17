@@ -1,4 +1,4 @@
-import Product from '../../../Database/Models/CommonModel/productSchema';
+import {Product} from '../../../Database/Models/CommonModel/productSchema';
 import ApiFeatures from '../../../utils/ApiFeatures';
 
 exports.getAllProducts = async (req, res) => {

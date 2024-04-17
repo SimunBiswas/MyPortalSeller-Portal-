@@ -1,4 +1,4 @@
-import Product from '../../../Database/Models/CommonModel/productSchema.js'
+import {Product} from '../../../Database/Models/CommonModel/productSchema.js'
 
 export const editProduct = async (req, res) => {
     try {
