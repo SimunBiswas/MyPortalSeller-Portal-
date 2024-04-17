@@ -1,12 +1,14 @@
-// logic to addproduct using Prodect model
-
 import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
-
 
 export const addProduct = async (req, res) => {
     try {
-        const { sellerId, name, description, price, quantity, category, images, brand, model, specifications, ratings, reviews, discount } = req.body;
+        // Extracting required fields from request body
+        const { name, description, price, quantity, category, images, brand, specifications,discount } = req.body;
 
+        // Assuming sellerId is available in the request object (e.g., from authentication middleware)
+        const { sellerId } = req;
+
+        // Creating a new product instance
         const newProduct = new Product({
             sellerId,
             name,
@@ -16,20 +18,19 @@ export const addProduct = async (req, res) => {
             category,
             images,
             brand,
-            model,
             specifications,
-            ratings,
-            reviews,
+            
             discount
         });
 
         // Saving the new product to the database
         await newProduct.save();
 
-        //these are template responses and can be modified for purpose
+        // Sending success response
         res.status(201).json({ message: 'Product added successfully', product: newProduct });
 
     } catch (error) {
+        // Handling errors
         console.error('Error adding product:', error);
         res.status(500).json({ message: 'Failed to add product' });
     }

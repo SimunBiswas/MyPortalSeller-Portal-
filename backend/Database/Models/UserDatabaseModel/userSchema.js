@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  otp: {
+    type: Number,
+    required: true
+  },
   password: {
     type: String,
     required: true
@@ -50,7 +54,7 @@ const userSchema = new mongoose.Schema({
   }],
   role: {
     type: String,
-    enum: ['user', 'admin'],
+    enum: 'user',
     default: 'user'
   },
   resetPasswordToken: String,
