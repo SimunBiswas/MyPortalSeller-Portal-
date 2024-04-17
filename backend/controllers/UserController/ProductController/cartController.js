@@ -3,7 +3,7 @@ import Cart from '../../../Database/Models/UserDatabaseModel/cartSchema';
 // Add a product to the cart
 export const addToCart = async (req, res) => {
   try {
-    const { productId, quantity } = req.body;
+    const { productId, quantity, color, size } = req.body;
     const userId = req.user._id; // Assuming you have authenticated the user and stored the user ID in req.user._id
 
     // Find the user's cart
@@ -16,15 +16,18 @@ export const addToCart = async (req, res) => {
 
     // Check if the product already exists in the cart
     const existingProductIndex = cart.items.findIndex(
-      (item) => item.productId.toString() === productId
+      (item) =>
+        item.productId.toString() === productId &&
+        item.color === color &&
+        item.size === size
     );
 
     if (existingProductIndex !== -1) {
-      // If the product exists, update its quantity
+      // If the product with the same color and size exists, update its quantity
       cart.items[existingProductIndex].quantity += quantity;
     } else {
-      // If the product doesn't exist, add it to the cart
-      cart.items.push({ productId, quantity });
+      // If the product with the same color and size doesn't exist, add it to the cart
+      cart.items.push({ productId, quantity, color, size });
     }
 
     // Save the updated cart
