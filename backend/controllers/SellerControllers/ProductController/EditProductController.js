@@ -1,6 +1,6 @@
-import Product from '../../../Database/Models/CommonModel/productSchema'
+import Product from '../../../Database/Models/CommonModel/productSchema.js'
 
-exports.editProduct = async (req, res) => {
+export const editProduct = async (req, res) => {
     try {
         // Find the product by ID
         let product = await Product.findById(req.params.id);
