@@ -1,0 +1,46 @@
+.foot-panel{
+    
+    
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    padding:30px;
+   
+}
+
+.foot-panel2{
+    background-color: #222f3d;
+    color: white;
+    height: 300px;
+    padding-top: 15px;
+    display:flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+    
+}
+ul{
+    margin-top: 20px;
+}
+ul a{
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
+
+.foot-panel3{
+    background-color:#222f3d; 
+    border-top: 0.3px solid white;
+    color: white;
+    height: 150px;
+    
+}
+.text-reset {
+    color: inherit;
+    text-decoration: none;
+}
+
+.text-reset:hover {
+  color: inherit;
+  text-decoration: none; 
+}
