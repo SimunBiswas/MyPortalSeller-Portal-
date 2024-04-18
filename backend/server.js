@@ -6,6 +6,7 @@ import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
 import orders from "./routes/OrderRoute/orderRoute.js"
 import ProductRouter from "./routes/ProductRoute/productRoute.js";
 import user from './routes/UserRoute/userRoute.js'
+import SellerRoute from "./routes/SellerRoute/sellerRoute.js";
 
 const app = express();
 
@@ -26,6 +27,10 @@ app.use('/api/v6', orders);
 //Product Routes
 app.use('/api/v6/',ProductRouter)
 app.use('/api/v6/', user)
+
+
+//seller signUp and Login route
+app.use('/api/v6/seller', SellerRoute)
 
 
 
