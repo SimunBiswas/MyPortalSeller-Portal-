@@ -18,6 +18,7 @@ import Footer from "./Customer/Components/Footer";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
+
 function App() {
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
