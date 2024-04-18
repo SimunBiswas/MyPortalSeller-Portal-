@@ -15,6 +15,8 @@ import TermAndCondition from "./Customer/pages/Terms&Conditions/TermAndCondition
 import UserDashBoard from "./Customer/pages/UserDashboard/UserDashBoard";
 import Navbar from './Customer/Components/Navbar';
 import Footer from "./Customer/Components/Footer";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   return (
