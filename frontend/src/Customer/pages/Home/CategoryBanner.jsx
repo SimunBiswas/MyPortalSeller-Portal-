@@ -22,11 +22,11 @@ const products = [
 function CategoryBanner() {
   return (
     <Grid
-      item
       lg={12}
       sm={12}
       xs={6}
       gap={4}
+      mb={6}
       style={{
         display: "flex",
         direction: "row",
@@ -36,6 +36,7 @@ function CategoryBanner() {
     >
       {products.map((product) => (
         <Grid
+          item
           style={{
             display: "flex",
             flexDirection: "column",
