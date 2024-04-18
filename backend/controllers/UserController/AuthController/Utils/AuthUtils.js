@@ -6,9 +6,7 @@ dotenv.config()
 
 export const generateToken = (user)=> {
  const payload = {
-    id:user_id,
-    email:user.email,
-    username:user.username,
+    id:user
  };
  return jwt.sign(payload,process.env.secretKey,{expiresIn:'1h'});
 }
@@ -16,9 +14,7 @@ export const generateToken = (user)=> {
 
 export const generaterefreshToken = (user)=> {
  const payload = {
-    id:user_id,
-    email:user.email,
-    username:user.username,
+    id:user
 
  };
  return jwt.sign(payload,process.env.secretKey,{expiresIn:'7h'});

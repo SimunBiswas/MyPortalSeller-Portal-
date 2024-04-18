@@ -2,31 +2,40 @@ import  { User } from "../../../Database/Models/UserDatabaseModel/userSchema.js"
 import transporter from "../../EmailService.js";
 import crypto from 'crypto';
 import { generateToken } from "./Utils/AuthUtils.js";
+import dotenv from "dotenv"
+dotenv.config()
 const generateOTP = () => {
     let otp = '';
 
     // Generate 3 random characters
-    for (let i = 0; i < 3; i++) {
-        otp += String.fromCharCode(Math.floor(Math.random() * 26) + 97); // Random lowercase letter
+    for (let i = 0; i < 6; i++) {
+        otp += Math.floor(Math.random() * 10); 
     }
-
-    // Generate 3 characters using crypto
-    const randomBytes = crypto.randomBytes(3).toString('hex');
-    otp += randomBytes;
 
     return otp;
 };
-
 export const sendOtp = async (req, resp) => {
     const { email } = req.body;
-    console.log(email)
+    
+    // Check if email is provided
+    if (!email) {
+        return resp.status(400).json({ error: 'Email is required' });
+    }
+
     try {
         const user = await User.findOne({ email });
 
         if (user) {
             return resp.status(409).json("User Already Exists");
         } else {
-            const _otp = generateOTP();
+            let _otp = generateOTP();
+
+            // Ensure _otp is a valid number
+            if (isNaN(parseInt(_otp))) {
+                _otp = generateOTP(); // Regenerate OTP if it's not a valid number
+            }
+
+            const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // OTP expires in 10 minutes
             const info = await transporter.sendMail({
                 from: process.env.email,
                 to: email,
@@ -39,13 +48,11 @@ export const sendOtp = async (req, resp) => {
             const password = Math.random().toString(36).substring(2, 11);
             const userToSave = {
                 email,
-                otp: _otp,
+                otp: _otp, 
+                otpExpires, // Save expiration date and time
                 name,
                 password,
-                avatar: {
-                    public_id: "demo_id",
-                    url: "demo_url"
-                }
+                avatar: "demo_url" // Set avatar as string
             };
 
             await User.create(userToSave);
@@ -54,9 +61,10 @@ export const sendOtp = async (req, resp) => {
         }
     } catch (error) {
         console.error(error);
-        return resp.status(400).json({ error: 'Error' });
+        return resp.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 export const resendOtp = async (req, resp) => {
     const { email } = req.body;
@@ -67,8 +75,11 @@ export const resendOtp = async (req, resp) => {
             return resp.status(404).json("User not found");
         }
 
+        const otpExpires = new Date(Date.now() + 10 * 60 * 1000);
         const _otp = generateOTP();
-        user.otp = _otp;
+        user.otp = _otp; 
+        user.otpExpires = otpExpires;
+        user.avatar = "demo_url"; // Set avatar as string
         await user.save();
 
         const info = await transporter.sendMail({
@@ -87,6 +98,7 @@ export const resendOtp = async (req, resp) => {
 };
 
 
+
 export const verifyOtp = async (req, resp) => {
     const { email, otp } = req.body;
     try {
@@ -99,7 +111,8 @@ export const verifyOtp = async (req, resp) => {
         if (user.otp !== otp) {
             return resp.status(400).json("Incorrect OTP");
         }
-
+         user.otp = ''
+         await user.save()
         // OTP is correct, send email back to user
         const info = await transporter.sendMail({
             from: process.env.email,
@@ -109,9 +122,10 @@ export const verifyOtp = async (req, resp) => {
             html: "<b>Your OTP has been verified successfully.</b>",
         });
 
-        resp.status(200).json({ message: "OTP verified successfully", email: user.email });
-        const token = generateToken(SavedUser)
+        console.log(user)
+        const token = generateToken(user._id)
         resp.cookie('jwt', token, { httpOnly: true, secure: true });
+        resp.status(200).json({ message: "OTP verified successfully", email: user.email });
     } catch (error) {
         console.error(error);
         return resp.status(500).json({ error: 'Internal Server Error' });

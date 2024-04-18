@@ -4,37 +4,44 @@ import { generaterefreshToken } from './Utils/AuthUtils.js';
 
 
 export const userSignUP = async(req,res)=>{
-           try {
-            const {username, email ,password} = req.body
+  try {
+    const { username, password } = req.body;
+    const userId = req.userId.id
+    console.log(userId)
+    // Find the user by email
+    const user = await User.findOne({ userId});
 
-            const CheckUser = User.findOne({email})
-            if (CheckUser) {
-                res.status(401).json({
-                  message:"User Already Exist"
-                })
-            }
-            
-        const HashedPassword = await bcrypt.hash(password,10);
-       
-        const SavedUser = await User.updateOne({
-          email:email
-        }, {$set :{
-            username:username,
-            password:HashedPassword
-        } })
-       const token = generaterefreshToken(SavedUser)
-       res.cookie('jwt', token, { httpOnly: true, secure: true });
-       const userData = await User.findOne({ email: email })('-password');
+    if (!user) {
+        return res.status(404).json({
+            message: "User not found"
+        });
+    }
 
-       return res.status(200).json({
-           success: true,
-           message: "Login success",
-           userData
-       });
-           } catch (error) {
-              res.status(400).json({
-                message:"Error in User SignUP API",
-                error
-              })
-           }
+    // Update user details
+    user.username = username;
+    user.password = await bcrypt.hash(password, 10); // Hash new password
+
+    // Save the updated user
+    await user.save();
+    const token = generaterefreshToken(user);
+
+    // Set JWT cookie
+    res.cookie('jwt', token, { httpOnly: true, secure: true });
+    // Respond with success message and updated user data
+    return res.status(200).json({
+        success: true,
+        message: "User details updated successfully",
+        userData: {
+            username: user.username,
+            email: user.email
+        }
+    });
+} catch (error) {
+    console.error("Error updating user after OTP verification:", error);
+    return res.status(500).json({
+        message: "Error updating user after OTP verification",
+        error
+    });
+}
+
 }
