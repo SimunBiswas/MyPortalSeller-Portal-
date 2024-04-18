@@ -2,16 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
-import orders from "./routes/OrderRoute/orderRoute.js";
-import ProductRouter from "./routes/ProductRoute/productRoute.js";
-<<<<<<< Updated upstream
+import seller from './routes/SellerRoute/sellerRoute.js'
 import user from './routes/UserRoute/userRoute.js'
-import SellerRoute from "./routes/SellerRoute/sellerRoute.js";
-
-=======
-import user from './routes/UserRoute/userRoute.js';
 import cookieParser from 'cookie-parser';
->>>>>>> Stashed changes
+
 const app = express();
 app.use(cookieParser(
     {
@@ -35,30 +29,20 @@ app.use(cors({
 }));
 
 // Routes
-app.use('/api/v6', orders);
-app.use('/api/v6', ProductRouter);
-app.use('/api/v6', user);
-
-<<<<<<< Updated upstream
-//Product Routes
-app.use('/api/v6/',ProductRouter)
-app.use('/api/v6/', user)
-
-
-//seller signUp and Login route
-app.use('/api/v6/seller', SellerRoute)
+app.use('/api/v6', user)
+app.use('/api/v6', seller)
 
 
 
 app.listen((PORT, ()=> console.log(`Server is Running On ${PORT}`)))
 
-=======
+
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
 });
->>>>>>> Stashed changes
+
 
 // Start the server
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

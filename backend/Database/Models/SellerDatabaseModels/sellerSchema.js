@@ -5,33 +5,48 @@ import mongoose from 'mongoose'
 const SellerSchmea = new mongoose.Schema({
             
         
-            Email:{
+            email:{
                 type:String,
                 reqired:true
             },
-            ShopName:{
+            otp: {
+                type: Number,
+                
+              },
+              avatar: {
+                type: String
+              },
+              otpExpires: {
+                type: Date,
+                required: true
+              },
+            shopName:{
                 type:String,
                 reqired:true
             },
-            ContactNumber:{
+            contactNumber:{
                 type:String,
                 reqired:true
             },
-            Password:{
+            password:{
                 type:String,
                 reqired:true
             },
-            ShopAddress:{
+            shopAddress:{
                 type:String,
                 reqired:true
             },
-            GstNumber:{
+            gstNumber:{
                 type:String,
                 reqired:true
             },
-            ShopOwnerName:{
+            shopOwnerName:{
                 type:String,
                 reqired:true
+            },
+            shopOwnerName:{
+                type:String,
+                
             },
 
 })

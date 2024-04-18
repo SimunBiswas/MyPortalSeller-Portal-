@@ -1,15 +1,17 @@
-
-
 import express from "express";
-
-import { SellerSignUP } from "../../controllers/SellerControllers/ProductController/AuthController/ragistrationController.js";
-import { LoginSeller } from "../../controllers/SellerControllers/ProductController/AuthController/sellerLoginController.js";
-
-
-const SellerRoute = express.Router()
+import { requireAuth } from "../../Middleware/authMiddleware.js";
+import { resendOtp, sendOtp, verifyOtp } from "../../controllers/SellerControllers/AuthController/SellerOtpController.js";
+import { sellerSignUp } from "../../controllers/SellerControllers/AuthController/ragistrationController.js";
+import { LoginSeller } from "../../controllers/SellerControllers/AuthController/sellerLoginController.js";
 
 
-SellerRoute.post('/register',SellerSignUP)
-SellerRoute.post('/login',LoginSeller)
 
-export default SellerRoute
+const Router = express.Router();
+
+Router.post('/seller/signup/sendotp', sendOtp);
+Router.post('/seller/signup/resendotp', resendOtp);
+Router.post('/seller/signup/verifyotp', verifyOtp);
+Router.post('/seller/signup/updatepassword',requireAuth, sellerSignUp,);
+Router.post('/seller/login', LoginSeller);
+
+export default Router;

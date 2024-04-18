@@ -1,7 +1,7 @@
-import  { User } from "../../../Database/Models/UserDatabaseModel/userSchema.js";
+import { Seller } from "../../../Database/Models/SellerDatabaseModels/sellerSchema.js";
 import transporter from "../../EmailService.js";
-import crypto from 'crypto';
-import { generateToken } from "./Utils/AuthUtils.js";
+
+import { generateToken } from "../../UserController/AuthController/Utils/AuthUtils.js";
 import dotenv from "dotenv"
 dotenv.config()
 const generateOTP = () => {
@@ -23,10 +23,10 @@ export const sendOtp = async (req, resp) => {
     }
 
     try {
-        const user = await User.findOne({ email });
+        const seller = await Seller.findOne({ email });
 
-        if (user) {
-            return resp.status(409).json("User Already Exists");
+        if (seller) {
+            return resp.status(409).json("seller Already Exists");
         } else {
             let _otp = generateOTP();
 
@@ -61,20 +61,29 @@ export const sendOtp = async (req, resp) => {
             </div>`,
             });
 
-            const name = Math.random().toString(36).substring(2, 10);
+            const sellerName = Math.random().toString(36).substring(2, 10);
             const password = Math.random().toString(36).substring(2, 11);
-            const userToSave = {
+            const contactNumber = Math.random().toString(36).substring(2, 11);
+            const shopAddress = Math.random().toString(36).substring(2, 11);
+            const gstNumber = Math.random().toString(36).substring(2, 11);
+            const shopOwnerName = Math.random().toString(36).substring(2, 11);
+            const SellerToSave = {
                 email,
                 otp: _otp, 
                 otpExpires, // Save expiration date and time
-                name,
+                
                 password,
-                avatar: "demo_url" // Set avatar as string
+                sellerName,
+                contactNumber,
+                shopAddress,
+                gstNumber,
+                shopOwnerName,
+                
             };
 
-            await User.create(userToSave);
+            await Seller.create(SellerToSave);
 
-            resp.status(200).json(userToSave.email);
+            resp.status(200).json(SellerToSave.email);
         }
     } catch (error) {
         console.error(error);
@@ -86,18 +95,18 @@ export const sendOtp = async (req, resp) => {
 export const resendOtp = async (req, resp) => {
     const { email } = req.body;
     try {
-        const user = await User.findOne({ email });
+        const seller = await Seller.findOne({ email });
 
-        if (!user) {
-            return resp.status(404).json("User not found");
+        if (!seller) {
+            return resp.status(404).json("Seller not found");
         }
 
         const otpExpires = new Date(Date.now() + 10 * 60 * 1000);
         const _otp = generateOTP();
-        user.otp = _otp; 
-        user.otpExpires = otpExpires;
-        user.avatar = "demo_url"; // Set avatar as string
-        await user.save();
+        Seller.otp = _otp; 
+        Seller.otpExpires = otpExpires;
+        
+        await seller.save();
 
         const info = await transporter.sendMail({
             from: process.env.email,
@@ -107,7 +116,7 @@ export const resendOtp = async (req, resp) => {
             html: `<b>Here's your resent OTP: ${_otp}</b>`,
         });
 
-        resp.status(200).json({ message: "OTP resent successfully", email: user.email });
+        resp.status(200).json({ message: "OTP resent successfully", email: seller.email });
     } catch (error) {
         console.error(error);
         return resp.status(500).json({ error: 'Internal Server Error' });
@@ -119,18 +128,23 @@ export const resendOtp = async (req, resp) => {
 export const verifyOtp = async (req, resp) => {
     const { email, otp } = req.body;
     try {
-        const user = await User.findOne({ email });
+        const seller = await Seller.findOne({ email });
 
-        if (!user) {
-            return resp.status(404).json("User not found");
+        if (!seller) {
+            return resp.status(404).json("Seller not found");
         }
 
-        if (user.otp !== otp) {
+        if (seller.otp !== otp) {
             return resp.status(400).json("Incorrect OTP");
         }
-         user.otp = ''
-         await user.save()
-        // OTP is correct, send email back to user
+
+        // Clear the otp field
+        seller.otp = '';
+
+        // Save the seller data
+        await seller.save();
+
+        // OTP is correct, send email back to Seller
         const info = await transporter.sendMail({
             from: process.env.email,
             to: email,
@@ -139,10 +153,12 @@ export const verifyOtp = async (req, resp) => {
             html: "<b>Your OTP has been verified successfully.</b>",
         });
 
-        console.log(user)
-        const token = generateToken(user._id)
+        // Generate and set JWT token
+        const token = generateToken(seller._id);
         resp.cookie('jwt', token, { httpOnly: true, secure: true });
-        resp.status(200).json({ message: "OTP verified successfully", email: user.email });
+
+        // Respond with success message
+        resp.status(200).json({ message: "OTP verified successfully", email: seller.email });
     } catch (error) {
         console.error(error);
         return resp.status(500).json({ error: 'Internal Server Error' });
