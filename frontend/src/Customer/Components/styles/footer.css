@@ -44,3 +44,79 @@ ul a{
   color: inherit;
   text-decoration: none; 
 }
+/* For screens smaller than 576px (e.g., phones) */
+@media (max-width: 575.98px) {
+    .foot-panel {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+    
+    .foot-panel > div {
+      margin-bottom: 20px; /* Add some space between the columns */
+    }
+    
+    .foot-panel2 {
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+      text-align: center;
+    }
+    .foot-panel3 {
+        height: auto;
+        padding: 20px 0;
+        align-items: center; /* Adjust padding for smaller screens */
+      }
+      
+      .foot-panel3 i {
+        font-size: 3rem; /* Decrease icon size for smaller screens */
+        margin: 10px; /* Add some space around the icons */
+      }
+  }
+  
+  /* For screens between 576px and 991.98px (e.g., tablets) */
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .foot-panel {
+      flex-wrap: wrap;
+      height: auto;
+    }
+    
+    .foot-panel > div {
+      width: 50%; /* Two columns on medium-sized screens */
+    }
+    
+    .foot-panel2 {
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+      text-align: center;
+    }
+    .foot-panel3 i {
+        font-size: 4rem; /* Adjust icon size for medium-sized screens */
+        margin: 15px; /* Adjust margin for medium-sized screens */
+        align-items: center;
+      }
+  }
+  
+  /* For screens 992px and larger (e.g., desktops) */
+  @media (min-width: 992px) {
+    .foot-panel {
+      height: 150px;
+    }
+    
+    .foot-panel2 {
+      height: 300px;
+    }
+    .foot-panel3 {
+        height: 150px; /* Reset height for desktop screens */
+      }
+      
+      .foot-panel3 i {
+        font-size: 5rem; /* Adjust icon size for desktop screens */
+        margin: 20px; /* Adjust margin for desktop screens */
+      }
+  }
+  
+ 
+  
+  
