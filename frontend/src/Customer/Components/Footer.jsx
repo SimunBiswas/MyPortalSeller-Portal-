@@ -1,61 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-
 import { MdVerified } from "react-icons/md";
+import './styles/footer.css';
 function Footer() {
   return (
-    <>
-      <style>
-      {`
-      .foot-panel{
     
-    
-    height: 150px;
-    display: flex;
-    justify-content: space-evenly;
-    padding:30px;
-   
-}
-
-.foot-panel2{
-    background-color: #222f3d;
-    color: white;
-    height: 300px;
-    
-    display:flex;
-    justify-content: space-evenly;
-    text-decoration: none;
-    
-}
-ul{
-    margin-top: 20px;
-}
-ul a{
-    display: block;
-    font-size: 0.85rem;
-  margin-top: 10px;
-  color: #dddddd;
-}
-
-.foot-panel3{
-    background-color:#222f3d; 
-    border-top: 0.3px solid white;
-    color: white;
-    height: 150px;
-    
-}
-.text-reset {
-  color: inherit;
-  text-decoration: none;
-}
-
-.text-reset:hover {
-  color: inherit;
-  text-decoration: none; 
-}
-`}
-      </style>
     <div>
     <div className="container-fluid">
       <div class=" row foot-panel ">
@@ -78,9 +27,9 @@ ul a{
           </center>
           </div>
       </div>
-        <div class=" container-fluid foot-panel2">
-        <ul>
-            <p className="text-reset">ReVogue</p>
+        <div class=" container-fluid foot-panel2 ">
+        <ul >
+            <p className="text-reset "><h5>ReVogue</h5></p>
             <Link to="/ "className="text-reset">Who We Are</Link>
             <Link to="/"className="text-reset">Join our Team</Link>
             <Link to="/"className="text-reset">We Respect Your Privacy</Link>
@@ -90,8 +39,8 @@ ul a{
          
         </ul>
 
-        <ul>
-            <p className="text-reset">Help</p>
+        <ul >
+            <p className="text-reset"><h5>Help</h5></p>
             <Link to="/"className="text-reset">Track Your Order</Link>
             <Link to="/"className="text-reset">Frequently Asked Question</Link>
             <Link to="/"className="text-reset">Returns</Link>
@@ -99,10 +48,10 @@ ul a{
             <Link to="/"className="text-reset">Payments</Link>
             <Link to="/"className="text-reset">Customer Care</Link>
             <Link tof="/"className="text-reset">How Do I Redeem My Coupon</Link>
-         
+          
         </ul>
-        <ul>
-            <p>Shop By</p>
+        <ul >
+            <p><h5>Shop By</h5></p>
             <Link to="/"className="text-reset">Men</Link>
             <Link to="/"className="text-reset">Women</Link>
             <Link to="/"className="text-reset">Kids</Link>
@@ -113,8 +62,8 @@ ul a{
          
         </ul>
 
-        <ul>
-           <p>Follow Us</p>
+        <ul >
+           <p><h5>Follow Us</h5></p>
             <Link to="https://www.facebook.com/revogueretailpvtltd?mibextid=kFxxJD" className="text-reset">Facebook</Link>
             <Link to="https://lnkd.in/dCuiidCa" className="text-reset">Instagram</Link>
             <Link to="https://www.linkedin.com/groups/7479848" className="text-reset">LinkedIn</Link>
@@ -134,7 +83,7 @@ ul a{
         </div>
     </div>
   </div>
-    </>
+    
   );
 }
 
