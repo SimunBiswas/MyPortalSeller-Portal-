@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import { Seller } from '../../../../Database/Models/SellerDatabaseModels/sellerSchema.js'
 
-
+import { generaterefreshToken } from '../../../UserController/AuthController/Utils/AuthUtils.js'
 
 
 export const SellerSignUP = async(req,res)=>{
@@ -17,13 +17,27 @@ export const SellerSignUP = async(req,res)=>{
             
         const HashedPassword = await bcrypt.hash(Password,10);
        
-        const newUser = User({Email,ShopName,ContactNumber,ShopAddress,GstNumber,ShopOwnerName,Password:HashedPassword })
-               
-       const SavedUser = await newUser.save()
+        
+        const SavedUser = await User.updateOne({
+            Email:Email
+          }, {$set :{
+              ShopName:ShopName,
+              password:HashedPassword,
+              ContactNumber:ContactNumber,
+              ShopAddress:ShopAddress,
+              GstNumber:GstNumber,
+              ShopOwnerName:ShopOwnerName
+
+          } })
+          const SavedSeller = await User.findOne({ Email: Email })('-password');
+          const token = generaterefreshToken(SavedSeller)
+          res.cookie('jwt', token, { httpOnly: true, secure: true });
        res.status(201).json({
-        message:'Seller Created SuccessFully', user:SavedUser
+        message:'Seller Created SuccessFully', seller:SavedSeller
        })
-           } catch (error) {
+       
+       
+           } catch (error) { 
               res.status(400).json({
                 message:"Error in User Seller SignUP API",
                 error

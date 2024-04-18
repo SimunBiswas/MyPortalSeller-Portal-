@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import { User } from '../../../Database/Models/UserDatabaseModel/userSchema.js';
-
+import { generaterefreshToken } from './Utils/AuthUtils.js';
 
 
 export const userSignUP = async(req,res)=>{
@@ -16,10 +16,13 @@ export const userSignUP = async(req,res)=>{
             
         const HashedPassword = await bcrypt.hash(password,10);
        
-        const newUser = User({username,email,password:HashedPassword })
-               
-       const SavedUser = await newUser.save()
-       const token = generateToken(SavedUser)
+        const SavedUser = await User.updateOne({
+          email:email
+        }, {$set :{
+            username:username,
+            password:HashedPassword
+        } })
+       const token = generaterefreshToken(SavedUser)
        res.cookie('jwt', token, { httpOnly: true, secure: true });
        const userData = await User.findOne({ email: email })('-password');
 

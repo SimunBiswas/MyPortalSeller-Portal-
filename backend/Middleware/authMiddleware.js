@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import User from '../Database/Models/UserDatabaseModel/userSchema';
-import Seller from '../Database/Models/SellerDatabaseModels/sellerSchema';
+import {User} from '../Database/Models/UserDatabaseModel/userSchema.js';
+import {Seller} from '../Database/Models/SellerDatabaseModels/sellerSchema.js';
 
 // Middleware to check if user is authenticated
 const requireAuth = (req, resp, next) => {

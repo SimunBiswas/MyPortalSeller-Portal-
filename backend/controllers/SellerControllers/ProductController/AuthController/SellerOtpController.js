@@ -2,7 +2,7 @@
 import { Seller } from "../../../../Database/Models/SellerDatabaseModels/sellerSchema.js";
 import crypto from 'crypto';
 import transporter from "../../../EmailService.js";
-
+import { generateToken } from "../../../UserController/AuthController/Utils/AuthUtils.js";
 const generateOTP = () => {
     let otp = '';
 
@@ -104,7 +104,7 @@ export const verifyOtp = async (req, resp) => {
         if (user.otp !== otp) {
             return resp.status(400).json("Incorrect OTP");
         }
-
+        
         // OTP is correct, send Email back to user
         const info = await transporter.sendMail({
             from: process.env.Email,
@@ -113,8 +113,11 @@ export const verifyOtp = async (req, resp) => {
             text: "Your OTP has been verified successfully.",
             html: "<b>Your OTP has been verified successfully.</b>",
         });
-
+        user.otp = '';
+        await user.save();
         resp.status(200).json({ message: "OTP verified successfully", Email: user.Email });
+        const token = generateToken(SavedUser)
+        resp.cookie('jwt', token, { httpOnly: true, secure: true });
     } catch (error) {
         console.error(error);
         return resp.status(500).json({ error: 'Internal Server Error Api' });

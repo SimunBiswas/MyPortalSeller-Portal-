@@ -1,5 +1,5 @@
-import {Product} from '../../../Database/Models/CommonModel/productSchema';
-import ApiFeatures from '../../../utils/ApiFeatures';
+import {Product} from '../../../Database/Models/CommonModel/productSchema.js';
+import ApiFeatures from '../../../utils/ApiFeatures.js';
 
 export const getAllProducts = async (req, res) => {
     try {

@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
-import secretKey from '../jwtConfig.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 
@@ -9,7 +10,7 @@ export const generateToken = (user)=> {
     email:user.email,
     username:user.username,
  };
- return jwt.sign(payload,secretKey,{expiresIn:'1h'});
+ return jwt.sign(payload,process.env.secretKey,{expiresIn:'1h'});
 }
 
 
@@ -20,7 +21,7 @@ export const generaterefreshToken = (user)=> {
     username:user.username,
 
  };
- return jwt.sign(payload,secretKey,{expiresIn:'7h'});
+ return jwt.sign(payload,process.env.secretKey,{expiresIn:'7h'});
 }
 
 

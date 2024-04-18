@@ -1,7 +1,7 @@
-import { User} from "../../../Database/Models/UserDatabaseModel/userSchema";
-import transporter from "../../EmailService";
+import  { User } from "../../../Database/Models/UserDatabaseModel/userSchema.js";
+import transporter from "../../EmailService.js";
 import crypto from 'crypto';
-
+import { generateToken } from "./Utils/AuthUtils.js";
 const generateOTP = () => {
     let otp = '';
 
@@ -19,6 +19,7 @@ const generateOTP = () => {
 
 export const sendOtp = async (req, resp) => {
     const { email } = req.body;
+    console.log(email)
     try {
         const user = await User.findOne({ email });
 
@@ -50,11 +51,6 @@ export const sendOtp = async (req, resp) => {
             await User.create(userToSave);
 
             resp.status(200).json(userToSave.email);
-
-            // Delete user data after 30 seconds
-            setTimeout(async () => {
-                await User.findOneAndDelete({ email });
-            }, 120000);
         }
     } catch (error) {
         console.error(error);
@@ -114,6 +110,8 @@ export const verifyOtp = async (req, resp) => {
         });
 
         resp.status(200).json({ message: "OTP verified successfully", email: user.email });
+        const token = generateToken(SavedUser)
+        resp.cookie('jwt', token, { httpOnly: true, secure: true });
     } catch (error) {
         console.error(error);
         return resp.status(500).json({ error: 'Internal Server Error' });

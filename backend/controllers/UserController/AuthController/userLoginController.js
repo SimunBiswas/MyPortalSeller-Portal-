@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import { User } from '../../../Database/Models/UserDatabaseModel/userSchema.js'
-import { generateToken } from './Utils/AuthUtils.js'
+import { generaterefreshToken } from './Utils/AuthUtils.js'
 
 
 
@@ -23,7 +23,7 @@ export const LoginUser = async(req,res)=>{
         
               })
            }
-           const token = generateToken(user)
+           const token = generaterefreshToken(user)
            res.cookie('jwt', token, { httpOnly: true, secure: true });
            const userData = await User.findOne({ email: email })('-password');
    
