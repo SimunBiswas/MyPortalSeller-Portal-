@@ -5,24 +5,24 @@ import './styles/footer.css';
 function Footer() {
   return (
     
-    <div>
     <div className="container-fluid">
-      <div class=" row foot-panel ">
+    <div className="container-fluid ">
+      <div class=" row foot-panel p-3">
         <div className="col-sm-4">
           <center>
-            <i className="fas fa-truck-fast fa-5x"></i>
+            <i className="fas fa-truck-fast fa-3x"></i>
             <h4 >Fast Delivery</h4>
           </center>
         </div>
 
         <div className="col-sm-4">
          <center> 
-            <i class="fa-solid fa-hand-holding-heart fa-5x"></i>
+            <i class="fa-solid fa-hand-holding-heart fa-3x"></i>
             <h4>100% Handpicked</h4></center>
         </div>
         <div className="col-sm-4 ">
           <center>
-            <MdVerified className="fa-5x " />
+            <MdVerified className="fa-3x " />
             <h4>Assured Quality</h4>
           </center>
           </div>
@@ -76,10 +76,11 @@ function Footer() {
 
         <div className="foot-panel3" >
         <h4 className="text-center pt-2">Payment Method</h4>
-            
-            <i className="fab fa-cc-visa fa-5x  px-4"></i>
-          <i className="fab fa-cc-mastercard fa-5x px-4"></i>
-          <i class="fa-brands fa-google-pay fa-5x px-4"></i>
+            <center>
+            <i className="fab fa-cc-visa fa-3x  px-4"></i>
+          <i className="fab fa-cc-mastercard fa-3x px-4"></i>
+          <i class="fa-brands fa-google-pay fa-3x px-4"></i>
+          </center>
         </div>
     </div>
   </div>
