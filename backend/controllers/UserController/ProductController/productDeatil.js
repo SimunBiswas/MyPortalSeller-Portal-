@@ -1,6 +1,6 @@
 import {Product} from '../../../Database/Models/CommonModel/productSchema';
 
-exports.getProductDetails = async (req, res) => {
+export const getProductDetails = async (req, res) => {
     try {
         // Find the product by ID
         const product = await Product.findById(req.params.id);

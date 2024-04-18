@@ -1,6 +1,6 @@
 import {Product} from '../../../Database/Models/CommonModel/productSchema';
 
-exports.createProductReview = async (req, resp) => {
+export const createProductReview = async (req, resp) => {
     const { rating, comment, productId, name } = req.body;
 
     const review = {

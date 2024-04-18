@@ -1,7 +1,7 @@
 import {Product} from '../../../Database/Models/CommonModel/productSchema';
 import ApiFeatures from '../../../utils/ApiFeatures';
 
-exports.getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
     try {
         // Define the number of products per page
         const productsPerPage = 21;
