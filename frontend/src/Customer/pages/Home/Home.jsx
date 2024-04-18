@@ -12,6 +12,7 @@ function Home() {
   return (
     <>
       <div>
+        <h3>Home !</h3>
         <CategoryBanner />
         <Banner1 />
         <Banner2 />
