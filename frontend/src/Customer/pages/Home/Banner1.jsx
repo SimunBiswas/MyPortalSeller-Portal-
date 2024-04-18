@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "./styles/styles.css";
+import "../../Components/styles/Banner1.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const ImgBanner = [
@@ -61,7 +61,7 @@ const Banner1 = () => {
       pagination={{
         clickable: true,
       }}
-      navigation={true}
+      navigation={false}
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper"
     >
