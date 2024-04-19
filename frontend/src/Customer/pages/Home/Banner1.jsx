@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Aditiya 16/04
 
 import React from "react";
@@ -78,5 +77,3 @@ const Banner1 = () => {
 };
 
 export default Banner1;
-=======
->>>>>>> ca90accbf33f724596ebe2440d38c591c2bc1aea
