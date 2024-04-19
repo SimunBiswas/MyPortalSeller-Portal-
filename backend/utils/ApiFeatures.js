@@ -1,42 +1,65 @@
-class Apifeatures {
-    constructor(query, querystr) {
+class ApiFeatures {
+    /**
+     * Constructor for ApiFeatures class.
+     * @param {Object} query - Mongoose query object.
+     * @param {Object} queryStr - Query parameters from request.
+     */
+    constructor(query, queryStr) {
         this.query = query;
-        this.querystr = querystr;
+        this.queryStr = queryStr;
     }
 
+    /**
+     * Search function to filter products based on keyword.
+     * @returns {Object} - Modified instance of ApiFeatures.
+     */
     search() {
-        const keyword = this.querystr.keyword;
+        const { keyword } = this.queryStr;
 
-    if (keyword) {
-        this.query = this.query.find({
-            $or: [
-                { name: { $regex: `.*${keyword}.*`, $options: "i" } },
-                { category: { $regex: `.*${keyword}.*`, $options: "i" } },
-                { description: { $regex: `.*${keyword}.*`, $options: "i" } },
-                { brand: { $regex: `.*${keyword}.*`, $options: "i" } },
-            ],
-        });
-    }
+        if (keyword) {
+            // Apply regex search for name, category, description, and brand
+            this.query = this.query.find({
+                $or: [
+                    { name: { $regex: `.*${keyword}.*`, $options: "i" } },
+                    { category: { $regex: `.*${keyword}.*`, $options: "i" } },
+                    { description: { $regex: `.*${keyword}.*`, $options: "i" } },
+                    { brand: { $regex: `.*${keyword}.*`, $options: "i" } },
+                ],
+            });
+        }
 
-    return this;
-    };
-
-    filter(){
-        const querycopy = {...this.querystr};
-        const removefiled = ["keyword", "page","limit"]
-        removefiled.forEach(key=>delete querycopy[key])
-        let queryStr = JSON.stringify(querycopy)
-        queryStr= queryStr.replace(/\b(gt|gte|lt|lte)\b/g,(key)=>`$${key}`);
-        this.query = this.query.find(JSON.parse(queryStr));
-        return this
-    }
-    pagination(resultParPage){
-        const currentpage = Number(this.querystr.page) || 1;
-        const skipfile = resultParPage*(currentpage-1);
-        this.query = this.query.limit(resultParPage).skip(skipfile);
         return this;
+    }
 
+    /**
+     * Filter function to apply additional filters to the query.
+     * @returns {Object} - Modified instance of ApiFeatures.
+     */
+    filter() {
+        const { keyword, page, limit, ...queryCopy } = this.queryStr;
+
+        // Remove non-filter fields from query
+        const queryStr = JSON.stringify(queryCopy)
+            .replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
+
+        // Apply filter to the query
+        this.query = this.query.find(JSON.parse(queryStr));
+        return this;
+    }
+
+    /**
+     * Pagination function to implement pagination for results.
+     * @param {number} productsPerPage - Number of products per page.
+     * @returns {Object} - Modified instance of ApiFeatures.
+     */
+    pagination(productsPerPage) {
+        const currentPage = parseInt(this.queryStr.page, 10) || 1;
+        const skip = productsPerPage * (currentPage - 1);
+
+        // Apply pagination to the query
+        this.query = this.query.limit(productsPerPage).skip(skip);
+        return this;
     }
 }
 
-module.exports = Apifeatures;
+export default ApiFeatures;

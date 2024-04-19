@@ -1,15 +1,22 @@
-const express = require("express");
-const { newOrder, myOrders, getSingleOrder } = require("../../controllers/UserController/ProductController/orderController");
-const { allOrdersByAdmin, getSingleOrderByadmin } = require("../../controllers/SellerControllers/ProductController/SellerOrdersController");
+
+import express from "express";
+import { getSingleOrder, myOrders, newOrder } from '../../controllers/UserController/ProductController/orderController.js'
+import { allOrdersByAdmin, getSingleOrderByadmin } from '../../controllers/SellerControllers/ProductController/SellerOrdersController.js'
+
+
+
+
+
 
 const Router = express.Router();
 
-Router.route("/order/new").post(newOrder)
-Router.route("/order/myorders").get(myOrders)
-Router.route("/order/:id").get(getSingleOrder)
-Router.route("/order/admin/allorders").get(allOrdersByAdmin)
-Router.route("/order/admin/:id").get(getSingleOrderByadmin)
+Router.post("/order/new",newOrder )
+Router.get("/order/myorders",myOrders)
+Router.get("/order/:id",getSingleOrder)
+Router.get("/order/admin/allorders",allOrdersByAdmin)
+Router.get("/order/admin/:id",getSingleOrderByadmin)
 
 
 
-module.exports = Router
+
+export default Router

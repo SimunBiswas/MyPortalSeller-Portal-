@@ -1,8 +1,11 @@
 // Import the Order model schema
-const Order = require('../../../Database/Models/CommanModel/OrderSchema');
+
+import { Order } from "../../../Database/Models/CommonModel/OrderSchema.js";
+
+
 
 // Controller function to create a new order
-exports.newOrder = async (req, resp) => {
+export const newOrder = async (req, resp) => {
     try {
         // Destructure request body to extract order details
         const { shippingInfo, orderItem, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
@@ -44,7 +47,7 @@ exports.newOrder = async (req, resp) => {
 };
 
 // Controller function to retrieve a single order by its ID
-exports.getSingleOrder = async (req, resp) => {
+export const getSingleOrder = async (req, resp) => {
     try {
         // Extract the order ID from request parameters
         const orderId = req.params.id.trim();
@@ -76,7 +79,7 @@ exports.getSingleOrder = async (req, resp) => {
 };
 
 // Controller function to retrieve all orders for the logged-in user
-exports.myOrders = async (req, resp) => {
+export const myOrders = async (req, resp) => {
     try {
         // Extract the user ID from the JWT token
         const userId = req.userData._id;

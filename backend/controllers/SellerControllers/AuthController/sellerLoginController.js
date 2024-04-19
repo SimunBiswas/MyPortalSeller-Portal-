@@ -1,15 +1,15 @@
 import bcrypt from 'bcrypt';
-import { User } from '../../../Database/Models/UserDatabaseModel/userSchema.js';
-import { generaterefreshToken } from './Utils/AuthUtils.js';
+import { Seller } from '../../../Database/Models/SellerDatabaseModels/sellerSchema.js';
+import { generaterefreshToken } from '../../UserController/AuthController/Utils/AuthUtils.js';
 
-export const LoginUser = async (req, res) => {
+export const LoginSeller = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ email });
+        const seller = await Seller.findOne({ email });
 
-        if (!user) {
+        if (!seller) {
             return res.status(400).json({
-                message: "User Does Not Exist",
+                message: "Seller Does Not Exist",
             });
         }
 
@@ -21,15 +21,15 @@ export const LoginUser = async (req, res) => {
             });
         }
 
-        const token = generaterefreshToken(user);
+        const token = generaterefreshToken(seller._id);
         res.cookie('jwt', token, { httpOnly: true, secure: true });
 
-        const userData = await User.findOne({ email }).select('-password');
+        const sellerData = await Seller.findOne({ email }).select('-password');
 
         return res.status(200).json({
             success: true,
             message: "Login success",
-            userData
+            sellerData
         });
     } catch (error) {
         return res.status(400).json({
