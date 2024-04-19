@@ -20,7 +20,7 @@ const SellerSchmea = new mongoose.Schema({
                 type: Date,
                 required: true
               },
-            shopName:{
+              contactNumber:{
                 type:String,
                 reqired:true
             },
@@ -44,7 +44,7 @@ const SellerSchmea = new mongoose.Schema({
                 type:String,
                 reqired:true
             },
-            shopOwnerName:{
+            shopName:{
                 type:String,
                 
             },
