@@ -5,7 +5,7 @@
 
 import React from 'react'
 import '../Components/styles/BottomNavbar.css'
-import { FaHome, FaSearch ,FaUser} from "react-icons/fa";
+import { FaHome, FaList  ,FaUser} from "react-icons/fa";
 import { Link } from 'react-router-dom';
  
 const BottomNavList = [
@@ -18,7 +18,7 @@ const BottomNavList = [
   {
     id : 1,
     to: "#",
-    icon : <FaSearch size={25} />,
+    icon : <FaList  size={25} />,
     NavName: "Categories"
   },
   {
