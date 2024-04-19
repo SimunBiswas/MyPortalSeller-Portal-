@@ -1,31 +1,52 @@
-// have to create seller model to save seller detail
-// like contect number, shop address,gstnumber etc neccessery deatil
-
 import mongoose from 'mongoose'
 
 
 
 const SellerSchmea = new mongoose.Schema({
             
-            ShopName:{
+        
+            email:{
                 type:String,
                 reqired:true
             },
-            ContactNumber:{
+            otp: {
+                type: Number,
+                
+              },
+              avatar: {
+                type: String
+              },
+              otpExpires: {
+                type: Date,
+                required: true
+              },
+            shopName:{
                 type:String,
                 reqired:true
             },
-            ShopAddress:{
+            contactNumber:{
                 type:String,
                 reqired:true
             },
-            GstNumber:{
+            password:{
                 type:String,
                 reqired:true
             },
-            ShopOwnerName:{
+            shopAddress:{
                 type:String,
                 reqired:true
+            },
+            gstNumber:{
+                type:String,
+                reqired:true
+            },
+            shopOwnerName:{
+                type:String,
+                reqired:true
+            },
+            shopOwnerName:{
+                type:String,
+                
             },
 
 })

@@ -1,40 +1,37 @@
-// logic to addproduct using Prodect model
+import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
 
-
-const Product = require('../../../Database/Models/CommonModel/productSchema');
-
-const addProduct = async (req, res) => {
+export const addProduct = async (req, res) => {
     try {
-        const { name, description, price, brand, category, image, rating, comments, offers } = req.body;
+        // Extracting required fields from request body
+        const { name, description, price, quantity, category, images, brand, specifications,discount } = req.body;
 
-        // Checking if the product already exists
-        const existingProduct = await Product.findOne({ name });
-        if (existingProduct) {
-            return res.status(400).json({ message: 'Product already exists' });
-        }
+        // Assuming sellerId is available in the request object (e.g., from authentication middleware)
+        const { sellerId } = req;
 
+        // Creating a new product instance
         const newProduct = new Product({
+            sellerId,
             name,
             description,
             price,
-            brand,
+            quantity,
             category,
-            image,
-            rating,
-            comments,
-            offers
+            images,
+            brand,
+            specifications,
+            
+            discount
         });
 
         // Saving the new product to the database
         await newProduct.save();
 
-        //these are template responses and can be modified for purpose
+        // Sending success response
         res.status(201).json({ message: 'Product added successfully', product: newProduct });
 
     } catch (error) {
+        // Handling errors
         console.error('Error adding product:', error);
         res.status(500).json({ message: 'Failed to add product' });
     }
 };
-
-module.exports = { addProduct };

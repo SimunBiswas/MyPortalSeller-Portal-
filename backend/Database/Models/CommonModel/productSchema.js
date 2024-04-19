@@ -1,8 +1,12 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const productSchema = new mongoose.Schema({
+  //seller Id
+  sellerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'seller'
+  },
   // Product name
   name: {
     type: String,
@@ -31,7 +35,6 @@ const productSchema = new Schema({
   category: {
     type: String,
     required: true
-    
   },
   // Product image URLs (at least one image required)
   images: {
@@ -95,4 +98,4 @@ const productSchema = new Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Product', productSchema);
+export const Product = mongoose.model("Product", productSchema)

@@ -1,0 +1,24 @@
+/* App.css */
+
+body{
+    margin: 0;
+    padding: 0;
+}
+.d-flex {
+    display: flex;
+  }
+  
+  .flex-column {
+    flex-direction: column;
+  }
+  
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+  
+  .App {
+    max-width: 100vh; 
+    margin: 0 auto; 
+    overflow-x: hidden; 
+  }
+  

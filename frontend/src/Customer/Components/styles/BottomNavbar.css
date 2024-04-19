@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 999999;
+  }
+  
+  .nav-item {
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    flex: 1;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-item:hover {
+    background-color: #1e03033f;
+  }
+  
+  /* .nav-item i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    display: block;
+  } */
+  
+  .nav-item span {
+    font-size: 12px;
+    display: block;
+  }
+  
+/* For laptops with screen width between 1024px and 1440px */
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .bottom-nav{
+    display: none;
+  }
+}
+
+/* For larger laptops with screen width greater than 1440px */
+@media only screen and (min-width: 1441px) {
+  .bottom-nav{
+    display: none;
+  }
+}

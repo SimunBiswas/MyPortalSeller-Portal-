@@ -1,27 +1,51 @@
-import dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
-import orders from "./routes/OrderRoute/orderRoute.js"
+import seller from './routes/SellerRoute/sellerRoute.js'
+import user from './routes/UserRoute/userRoute.js'
+import cookieParser from 'cookie-parser';
 
 const app = express();
+app.use(cookieParser(
+    {
+        origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add more methods as needed
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    }
+));
+const PORT = process.env.PORT || 5500;
 
-const PORT = process.env.PORT || 5000;
-
-//Middlewares
+// Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
 
-//Routes
-app.use('/api/v6', orders);
+// CORS settings
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add more methods as needed
+    allowedHeaders: ['Content-Type', 'Authorization'], // Add more headers as needed
+}));
+
+// Routes
+app.use('/api/v6', user)
+app.use('/api/v6', seller)
 
 
 
 app.listen((PORT, ()=> console.log(`Server is Running On ${PORT}`)))
 
 
-//Database Connection
-dbConnection()
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
+
+// Start the server
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+
+// Database Connection
+dbConnection();

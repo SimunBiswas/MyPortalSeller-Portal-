@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Components/styles/navbar.css";
+import BottomNavbar from "./BottomNavbar";
 
 function Navbar() {
   return (
@@ -107,6 +108,7 @@ function Navbar() {
           </div>
         </div>
       </header>
+      <BottomNavbar/>
       {/* Header Section End */}
     </>
   );

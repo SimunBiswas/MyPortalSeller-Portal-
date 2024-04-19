@@ -1,51 +1,56 @@
 // have to create logic for SellerOrder seller id and orderModel
 
-const Order = require('../../../Database/Models/CommonModel/OrderSchema');
+import { Order } from "../../../Database/Models/CommonModel/OrderSchema.js";
 
 
 
-exports.getSingleOrderByadmin = async (req, resp) => {
+//get info for single order by admin
+export const getSingleOrderByadmin = async (req, res) => {
     try {
+        //extracting id info from parameters
         const orderId = req.params.id.trim();
+        //populating the respective order with user info
         const order = await Order.findById(orderId).populate('user', 'name email');
 
         if (!order) {
-            return resp.status(404).json({
+            return res.status(404).json({
                 success: false,
                 message: 'No order found',
             });
         }
 
-        resp.status(200).json({
+        res.status(200).json({
             success: true,
             order,
         });
     } catch (error) {
-        resp.status(500).json({
+        res.status(500).json({
             success: false,
             message: error.message,
         });
     }
 };
-exports.allOrdersByAdmin = async (req, resp) => {
-    try {
-       
 
+//get info for all orders by admin
+export const allOrdersByAdmin = async (req, res) => {
+    try {
+
+        //fetching info for all the orders
         const orders = await Order.find();
 
         if (!orders || orders.length === 0) {
-            return resp.status(404).json({
+            return res.status(404).json({
                 success: false,
                 message: "No Orders Found for the User",
             });
         }
-        
-        resp.status(200).json({
+
+        res.status(200).json({
             success: true,
             orders,
         });
     } catch (error) {
-        resp.status(500).json({
+        res.status(500).json({
             success: false,
             message: error.message,
         });
