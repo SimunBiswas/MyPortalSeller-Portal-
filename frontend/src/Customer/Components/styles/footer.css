@@ -1,11 +1,14 @@
-.foot-panel{
-    
-    
+.container {
+  padding: 0;
+  margin: auto;
+  max-width: 100%; 
+}
+
+
+.foot-panel{    
     height: 100px;
     display: flex;
-    justify-content: space-evenly;
-    
-   
+    justify-content: space-evenly;  
 }
 
 .foot-panel2{
@@ -47,6 +50,10 @@ ul a{
 }
 /* For screens smaller than 576px (e.g., phones) */
 @media (max-width: 575.98px) {
+  .container{
+    margin-bottom: 90px;
+
+  }
     .foot-panel {
       flex-direction: column;
       align-items: center;
@@ -78,6 +85,7 @@ ul a{
   
   /* For screens between 576px and 991.98px (e.g., tablets) */
   @media (min-width: 576px) and (max-width: 991.98px) {
+    
     .foot-panel {
       flex-wrap: wrap;
       height: auto;
@@ -124,4 +132,5 @@ ul a{
   
  
   
-  
+
+
