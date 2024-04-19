@@ -44,14 +44,14 @@ const SellerSchmea = new mongoose.Schema({
                 type:String,
                 reqired:true
             },
-<<<<<<< Updated upstream
+
             shopName:{
                 type:String,
                 
             },
-=======
+
            
->>>>>>> Stashed changes
+
 
 })
 

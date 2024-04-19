@@ -4,6 +4,7 @@ import { resendOtp, sendOtp, verifyOtp } from "../../controllers/SellerControlle
 import { sellerSignUp } from "../../controllers/SellerControllers/AuthController/ragistrationController.js";
 import { LoginSeller } from "../../controllers/SellerControllers/AuthController/sellerLoginController.js";
 import { resetPassword, sellerForgotPassword } from "../../controllers/SellerControllers/AuthController/sellerForgotPassword.js";
+import { sellerLogout } from "../../controllers/SellerControllers/AuthController/sellerLogout.js";
 
 
 
@@ -16,5 +17,5 @@ Router.post('/seller/signup/updatepassword',requireAuth, sellerSignUp,);
 Router.post('/seller/login', LoginSeller);
 Router.post('/seller/forgot-password', sellerForgotPassword)
 Router.post('/seller/reset-password', resetPassword)
-
+Router.get('/seller/logout',requireAuth, sellerLogout);
 export default Router;

@@ -6,6 +6,7 @@ import seller from './routes/SellerRoute/sellerRoute.js'
 import user from './routes/UserRoute/userRoute.js'
 import cookieParser from 'cookie-parser';
 import order from './routes/OrderRoute/orderRoute.js'
+import ProductRouter from "./routes/ProductRoute/productRoute.js";
 
 const app = express();
 app.use(cookieParser(
@@ -33,7 +34,7 @@ app.use(cors({
 app.use('/api/v6', user)
 app.use('/api/v6', seller)
 app.use('/api/v6', order)
-
+app.use('/api/v6', ProductRouter)
 
 
 app.listen((PORT, ()=> console.log(`Server is Running On ${PORT}`)))

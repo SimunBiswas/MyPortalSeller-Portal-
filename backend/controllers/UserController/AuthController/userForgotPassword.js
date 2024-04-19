@@ -42,10 +42,7 @@ export const userForgotPassword = async (req, res) => {
     }
 };
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 
 
 export const resetPassword = async (req, res) => {

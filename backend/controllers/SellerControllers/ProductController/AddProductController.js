@@ -3,7 +3,7 @@ import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
 export const addProduct = async (req, res) => {
     try {
         // Extracting required fields from request body
-        const { name, description, price, quantity, category, images, brand, specifications,discount } = req.body;
+        const { productName, description, price, quantity, category, images, brand, specifications,discount } = req.body;
 
         // Assuming sellerId is available in the request object (e.g., from authentication middleware)
         const { sellerId } = req.sellerId._id
@@ -11,7 +11,7 @@ export const addProduct = async (req, res) => {
         // Creating a new product instance
         const newProduct = new Product({
             sellerId,
-            name,
+            productName,
             description,
             price,
             quantity,

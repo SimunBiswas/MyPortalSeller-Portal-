@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
     ref: 'seller'
   },
   // Product name
-  name: {
+  productName: {
     type: String,
     required: true,
     trim: true
@@ -40,7 +40,8 @@ const productSchema = new mongoose.Schema({
   images: {
     type: [String],
     required: true,
-    validate: [arr => arr.length > 0, 'At least one image URL is required']
+    validate: [arr => arr.length > 0, 'At least one image URL is required'],
+    default:"abc.jgp"
   },
   // Product brand
   brand: {
@@ -54,8 +55,8 @@ const productSchema = new mongoose.Schema({
   },
   // Product specifications
   specifications: {
-    type: Map,
-    of: String
+    type:String,
+
   },
   // Product ratings
   ratings: {
