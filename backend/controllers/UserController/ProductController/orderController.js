@@ -5,7 +5,7 @@ import { Order } from "../../../Database/Models/CommonModel/OrderSchema.js";
 export const newOrder = async (req, res) => {
     try {
         // Destructure request body to extract order details
-        const { shippingInfo, orderItems, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
+        const { shippingInfo, orderItems, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice} = req.body;
         const userId = req.userId._id
         console.log(userId)
         // Create the new order using the Order model schema

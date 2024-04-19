@@ -17,9 +17,7 @@ export const sellerSignUp = async(req,res)=>{
         });
     }
     const HashedPassword = await bcrypt.hash(password, 10);
-    const SellerUpdate = await User.updateOne({
-        _id:userId
-      }, {$set :{
+    const SellerUpdate = await Seller.updateOne(userId,{
           shopName:shopName,
           password:HashedPassword,
           contactNumber:contactNumber,
@@ -27,7 +25,7 @@ export const sellerSignUp = async(req,res)=>{
           gstNumber:gstNumber,
           shopOwnerName:shopOwnerName
     
-      } })
+      } )
     const token = generaterefreshToken(seller._id);
 
     // Set JWT cookie
