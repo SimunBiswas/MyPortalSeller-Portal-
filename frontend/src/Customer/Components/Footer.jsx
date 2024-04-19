@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,160 +6,66 @@ import {
   faHandHoldingHeart,
   faSquareCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import './styles/footer.css';
 
-import "./styles/footer.css";
 function Footer() {
+  const [menuState, setMenuState] = useState(Array(4).fill(false));
+
+  const toggleMenu = index => {
+    const updatedState = [...menuState];
+    updatedState[index] = !updatedState[index];
+    setMenuState(updatedState);
+  };
+
   return (
-    <div className=" container ">
-      <div class=" row foot-panel p-3">
-        <div className="col-sm-4">
-          <center>
-            <FontAwesomeIcon icon={faTruckFast} style={{ fontSize: "2rem" }} />
-            <h4>Fast Delivery</h4>
-          </center>
-        </div>
-
-        <div className="col-sm-4">
-          <center>
-            <FontAwesomeIcon
-              icon={faHandHoldingHeart}
-              style={{ fontSize: "2rem" }}
-            />
-            <h4>100% Handpicked</h4>
-          </center>
-        </div>
-        <div className="col-sm-4">
-          <center>
-            <FontAwesomeIcon
-              icon={faSquareCheck}
-              style={{ fontSize: "2rem" }}
-            />
-
-            <h4>Assured Quality</h4>
-          </center>
-        </div>
+    <div className="container-fluid">
+      <div className="row foot-panel p-3">
+        {[
+          { icon: faTruckFast, text: "Fast Delivery" },
+          { icon: faHandHoldingHeart, text: "100% Handpicked" },
+          { icon: faSquareCheck, text: "Assured Quality" }
+        ].map((item, index) => (
+          <div key={index} className="col-sm-4">
+            <center>
+              <FontAwesomeIcon icon={item.icon} style={{ fontSize: "2rem" }} />
+              <h4>{item.text}</h4>
+            </center>
+          </div>
+        ))}
       </div>
-      <div class=" container-fluid foot-panel2 ">
-        <ul>
-          <p className="text-reset ">
-            <h5>ReVogue</h5>
-          </p>
-          <Link to="/ " className="text-reset">
-            Who We Are
-          </Link>
-          <Link to="/" className="text-reset">
-            Join our Team
-          </Link>
-          <Link to="/" className="text-reset">
-            We Respect Your Privacy
-          </Link>
-          <Link to="/" className="text-reset">
-            Fees & Payments
-          </Link>
-          <Link to="/" className="text-reset">
-            Returns & Refunds Policy
-          </Link>
-          <Link to="/" className="text-reset">
-            Promotion Terms & Conditions
-          </Link>
-        </ul>
 
-        <ul>
-          <p className="text-reset">
-            <h5>Help</h5>
-          </p>
-          <Link to="/" className="text-reset">
-            Track Your Order
-          </Link>
-          <Link to="/" className="text-reset">
-            Frequently Asked Question
-          </Link>
-          <Link to="/" className="text-reset">
-            Returns
-          </Link>
-          <Link to="/" className="text-reset">
-            Cancellations
-          </Link>
-          <Link to="/" className="text-reset">
-            Payments
-          </Link>
-          <Link to="/" className="text-reset">
-            Customer Care
-          </Link>
-          <Link tof="/" className="text-reset">
-            How Do I Redeem My Coupon
-          </Link>
-        </ul>
-        <ul>
-          <p>
-            <h5>Shop By</h5>
-          </p>
-          <Link to="/" className="text-reset">
-            Men
-          </Link>
-          <Link to="/" className="text-reset">
-            Women
-          </Link>
-          <Link to="/" className="text-reset">
-            Kids
-          </Link>
-          <Link to="/" className="text-reset">
-            Stores
-          </Link>
-          <Link to="/" className="text-reset">
-            New Arrivals
-          </Link>
-          <Link to="/" className="text-reset">
-            Home
-          </Link>
-          <Link to="/" className="text-reset">
-            Collections
-          </Link>
-        </ul>
-
-        <ul>
-          <p>
-            <h5>Follow Us</h5>
-          </p>
-          <Link
-            to="https://www.facebook.com/revogueretailpvtltd?mibextid=kFxxJD"
-            className="text-reset"
-          >
-            Facebook
-          </Link>
-          <Link to="https://lnkd.in/dCuiidCa" className="text-reset">
-            Instagram
-          </Link>
-          <Link
-            to="https://www.linkedin.com/groups/7479848"
-            className="text-reset"
-          >
-            LinkedIn
-          </Link>
-          <Link
-            to="https://twitter.com/s_bind?t=NSGXumeFdR9vIEDLZBA7sw&s=08"
-            className="text-reset"
-          >
-            Twitter
-          </Link>
-          <Link to="https://pin.it/3ZyApCg" className="text-reset">
-            Pinterest
-          </Link>
-          <Link
-            to="https://youtube.com/@ReVogueShop?si=MPJUxWRRofaR1_1G"
-            className="text-reset"
-          >
-            YouTube
-          </Link>
-        </ul>
+      <div className="container-fluid foot-panel2">
+        {[
+          ["ReVogue", ["Who We Are", "Join our Team", "We Respect Your Privacy", "Fees & Payments", "Returns & Refunds Policy", "Promotion Terms & Conditions"]],
+          ["Help", ["Track Your Order", "Frequently Asked Question", "Returns", "Cancellations", "Payments", "Customer Care", "How Do I Redeem My Coupon"]],
+          ["Shop By", ["Men", "Women", "Kids", "Stores", "New Arrivals", "Home", "Collections"]],
+          ["Follow Us", ["Facebook", "Instagram", "LinkedIn", "Twitter", "Pinterest", "YouTube"]]
+        ].map((item, index) => (
+          <div key={index}>
+            <button className={`toggle-btn d-block d-sm-none`} onClick={() => toggleMenu(index)}>
+              <h5>{item[0]}</h5>
+            </button>
+            <ul className={`mobile-menu ${menuState[index] ? 'show' : ''}`} type="none">
+              {item[1].map((link, i) => (
+                <li key={i}><Link to="/">{link}</Link></li>
+              ))}
+            </ul>
+            <ul className={`desktop-menu d-none d-sm-block ${menuState[index] ? 'show' : ''}`} type="none">
+              <h5>{item[0]}</h5>
+              {item[1].map((link, i) => (
+                <li key={i}><Link to="/">{link}</Link></li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
       <div className="foot-panel3">
         <h4 className="text-center pt-2">Payment Method</h4>
         <center>
-          <i className="fab fa-cc-visa fa-3x  px-4"></i>
+          <i className="fab fa-cc-visa fa-3x px-4"></i>
           <i className="fab fa-cc-mastercard fa-3x px-4"></i>
-          <i class="fa-brands fa-google-pay fa-3x px-4"></i>
+          <i className="fa-brands fa-google-pay fa-3x px-4"></i>
         </center>
       </div>
     </div>

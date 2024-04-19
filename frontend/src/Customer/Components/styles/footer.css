@@ -1,136 +1,193 @@
+.foot-panel{
+    
+    
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  width:100%
+  
+}
+
 .container {
-  padding: 0;
-  margin: auto;
-  max-width: 100%; 
+padding: 0;
+margin: auto;
+max-width: 100%; 
 }
 
 
 .foot-panel{    
-    height: 100px;
-    display: flex;
-    justify-content: space-evenly;  
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;  
+
 }
 
 .foot-panel2{
-    background-color: #222f3d;
-    color: white;
-    height: 300px;
-    padding-top: 15px;
-    display:flex;
-    justify-content: space-evenly;
-    text-decoration: none;
-    
+  background-color: #222f3d;
+  color: white;
+  height: 300px;
+  padding-top: 15px;
+  display:flex;
+  justify-content: space-evenly;
+  text-decoration: none;
+ 
+  
+  
+}
+.foot-panel2 ul li{
+text-decoration: none;
+
 }
 ul{
-    margin-top: 20px;
+  margin-top: 20px;
 }
 ul a{
-    display: block;
-    font-size: 0.85rem;
-    margin-top: 10px;
-    color: #dddddd;
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  color: #dddddd;
 }
 
 .foot-panel3{
-    background-color:#222f3d; 
-    border-top: 0.3px solid white;
-    color: white;
-    height: 150px;
-    
+  background-color:#222f3d; 
+  border-top: 0.3px solid white;
+  color: white;
+  height: 150px;
+  width: 100%;
+  
 }
 
 .text-reset {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .text-reset:hover {
-  color: inherit;
-  text-decoration: none; 
+color: inherit;
+text-decoration: none; 
 }
 /* For screens smaller than 576px (e.g., phones) */
 @media (max-width: 575.98px) {
-  .container{
-    margin-bottom: 90px;
+.container{
+  margin-bottom: 90px;
 
-  }
-    .foot-panel {
-      flex-direction: column;
-      align-items: center;
-      height: auto;
-      width: auto;
-    }
+}
+  .foot-panel {
+   
     
-    .foot-panel > div {
-      margin-bottom: 20px; /* Add some space between the columns */
-    }
-    
-    .foot-panel2 {
-      flex-direction: column;
-      height: auto;
-      align-items: center;
-      text-align: center;
-    }
-    .foot-panel3 {
-        height: auto;
-        padding: 20px 0; /* Adjust padding for smaller screens */
-        align-items: center; 
-      }
-      
-      .foot-panel3 i {
-        font-size: 3rem; /* Decrease icon size for smaller screens */
-        margin: 10px; /* Add some space around the icons */
-      }
+    height:auto;
+    width: auto;
   }
   
-  /* For screens between 576px and 991.98px (e.g., tablets) */
-  @media (min-width: 576px) and (max-width: 991.98px) {
+  .foot-panel > div {
     
-    .foot-panel {
-      flex-wrap: wrap;
+    margin-bottom: 20px; /* Add some space between the columns */
+  }
+  .foot-panel div h4{
+    font-size: 15px;
+  }
+  .foot-panel i{
+    font-size: 2rem;
+    
+  }
+  
+  .foot-panel2 {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+  .foot-panel3 {
       height: auto;
+      padding: 20px 0; /* Adjust padding for smaller screens */
+      align-items: center; 
+      padding-top: 2px;
+      padding-bottom: 80px;
     }
     
-    .foot-panel > div {
-      width: 50%; /* Two columns on medium-sized screens */
-    }
-    
-    .foot-panel2 {
-      flex-direction: column;
-      height: auto;
-      align-items: center;
-      text-align: center;
-    }
     .foot-panel3 i {
-        font-size: 4rem; /* Adjust icon size for medium-sized screens */
-        margin: 15px; /* Adjust margin for medium-sized screens */
-        align-items: center;
-      }
+      font-size: 2rem; /* Decrease icon size for smaller screens */
+      margin: 10px; /* Add some space around the icons */
+    }
+}
+
+/* For screens between 576px and 991.98px (e.g., tablets) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  
+  .foot-panel {
+    flex-wrap: wrap;
+    height: auto;
   }
   
-  /* For screens 992px and larger (e.g., desktops) */
-  @media (min-width: 992px) {
-    .foot-panel {
-      height: 100px;
+  .foot-panel > div {
+    width: 50%; /* Two columns on medium-sized screens */
+  }
+  
+  .foot-panel2 {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+  .foot-panel3 i {
+      font-size: 3rem; /* Adjust icon size for medium-sized screens */
+      margin: 15px; /* Adjust margin for medium-sized screens */
+      align-items: center;
+    }
+}
+
+/* For screens 992px and larger (e.g., desktops) */
+@media (min-width: 992px) {
+  .foot-panel {
+    height: 100px;
+    
+  }
+  
+  .foot-panel2 {
+    height: 300px;
+   
+  }
+  .foot-panel3 {
+      height: 150px; /* Reset height for desktop screens */
       
     }
     
-    .foot-panel2 {
-      height: 300px;
-     
+    .foot-panel3 i {
+      font-size: 4rem; /* Adjust icon size for desktop screens */
+      padding-top: 6px; /* Adjust margin for desktop screens */
     }
-    .foot-panel3 {
-        height: 150px; /* Reset height for desktop screens */
-        
-      }
-      
-      .foot-panel3 i {
-        font-size: 4rem; /* Adjust icon size for desktop screens */
-        padding-top: 6px; /* Adjust margin for desktop screens */
-      }
-  }
-  
- 
-  
+}
 
+.mobile-menu {
+  list-style-type: none;
+  padding: 0;
+  display: none;
+}
 
+.mobile-menu.show {
+  display: block;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+.toggle-btn:focus {
+  outline: none;
+}
+
+/* Additional styles for the mobile menu */
+.mobile-menu li {
+  margin-bottom: 10px;
+}
+
+.mobile-menu li a {
+  text-decoration: none;
+  color: inherit;
+}
