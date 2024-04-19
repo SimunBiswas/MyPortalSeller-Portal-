@@ -34,7 +34,7 @@ function BottomNavbar() {
     <nav className="bottom-nav">
     
     {BottomNavList.map(({ id, to, icon ,NavName}) => (
-        <Link to={to} className="nav-item">
+        <Link key={id} to={to} className="nav-item">
         {icon}
           <span>{NavName}</span>
         </Link>
