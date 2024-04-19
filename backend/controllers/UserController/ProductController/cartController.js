@@ -102,7 +102,7 @@ export const decrementQuantity = async (req, res) => {
     if (cart.items[productIndex].quantity <= 0) {
       cart.items.splice(productIndex, 1);
     }
-
+    //git change
     // Save the updated cart
     await cart.save();
 
