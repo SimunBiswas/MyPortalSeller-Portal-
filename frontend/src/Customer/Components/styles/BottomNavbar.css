@@ -41,3 +41,16 @@ body {
     display: block;
   }
   
+/* For laptops with screen width between 1024px and 1440px */
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .bottom-nav{
+    display: none;
+  }
+}
+
+/* For larger laptops with screen width greater than 1440px */
+@media only screen and (min-width: 1441px) {
+  .bottom-nav{
+    display: none;
+  }
+}
