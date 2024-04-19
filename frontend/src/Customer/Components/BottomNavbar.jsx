@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const BottomNavList = [
   {
     id : 0,
-    to: "#",
+    to: "/",
     icon : <FaHome size={25} />,
     NavName: "Home"
   },
@@ -19,13 +19,13 @@ const BottomNavList = [
     id : 1,
     to: "#",
     icon : <FaSearch size={25} />,
-    NavName: "Search"
+    NavName: "Categories"
   },
   {
     id : 2,
     to: "#",
     icon : <FaUser size={25} />,
-    NavName: "Profile"
+    NavName: "Account"
   },
 ]
 
