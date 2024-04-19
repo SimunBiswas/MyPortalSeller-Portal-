@@ -7,6 +7,7 @@ import Banner2 from "./Banner2";
 import Banner3 from "./Banner3";
 import CategoryBanner from "./CategoryBanner";
 import BottomCategoryBanner from "./BottomCategoryBanner";
+import BottomNavbar from "../../Components/BottomNavbar";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
         <Banner2 />
         <Banner3 />
         <BottomCategoryBanner/>
+        <BottomNavbar/>
       </div>
     </>
   );
