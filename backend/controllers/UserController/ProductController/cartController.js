@@ -1,4 +1,4 @@
-import Cart from '../../../Database/Models/UserDatabaseModel/cartSchema';
+import Cart from '../../../Database/Models/UserDatabaseModel/cartSchema.js';
 
 // Add a product to the cart
 export const addToCart = async (req, res) => {
