@@ -25,7 +25,7 @@ const requireAuth = (req, resp, next) => {
 const checkUser = async (req, resp, next) => {
     const token = req.cookies.jwt;
     if (token) {
-        jwt.verify(token, process.env.secret_key, async (error, decodedToken) => {
+        jwt.verify(token, process.env.secretKey, async (error, decodedToken) => {
             if (error) {
                 resp.redirect('/login');
             } else if (decodedToken) {
@@ -43,7 +43,7 @@ const checkUser = async (req, resp, next) => {
 const checkSeller = async (req, resp, next) => {
     const token = req.cookies.jwt;
     if (token) {
-        jwt.verify(token, process.env.secret_key, async (error, decodedToken) => {
+        jwt.verify(token, process.env.secretKey, async (error, decodedToken) => {
             if (error) {
                 resp.redirect('/seller/login');
             } else if (decodedToken) {

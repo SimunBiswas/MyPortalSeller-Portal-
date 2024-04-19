@@ -5,6 +5,7 @@ import { dbConnection } from "./Database/DatabaseConnection/dbConnection.js";
 import seller from './routes/SellerRoute/sellerRoute.js'
 import user from './routes/UserRoute/userRoute.js'
 import cookieParser from 'cookie-parser';
+import order from './routes/OrderRoute/orderRoute.js'
 
 const app = express();
 app.use(cookieParser(
@@ -31,6 +32,7 @@ app.use(cors({
 // Routes
 app.use('/api/v6', user)
 app.use('/api/v6', seller)
+app.use('/api/v6', order)
 
 
 

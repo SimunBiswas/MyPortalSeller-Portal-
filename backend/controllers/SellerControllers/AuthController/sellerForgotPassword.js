@@ -42,7 +42,7 @@ export const sellerForgotPassword = async (req, res) => {
     }
 };
 
-import jwt from "jsonwebtoken";
+
 
 
 export const resetPassword = async (req, res) => {
