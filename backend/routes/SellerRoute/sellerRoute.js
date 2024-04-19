@@ -3,6 +3,7 @@ import { requireAuth } from "../../Middleware/authMiddleware.js";
 import { resendOtp, sendOtp, verifyOtp } from "../../controllers/SellerControllers/AuthController/SellerOtpController.js";
 import { sellerSignUp } from "../../controllers/SellerControllers/AuthController/ragistrationController.js";
 import { LoginSeller } from "../../controllers/SellerControllers/AuthController/sellerLoginController.js";
+import { resetPassword, sellerForgotPassword } from "../../controllers/SellerControllers/AuthController/sellerForgotPassword.js";
 
 
 
@@ -13,5 +14,7 @@ Router.post('/seller/signup/resendotp', resendOtp);
 Router.post('/seller/signup/verifyotp', verifyOtp);
 Router.post('/seller/signup/updatepassword',requireAuth, sellerSignUp,);
 Router.post('/seller/login', LoginSeller);
+Router.post('/seller/forgot-password', sellerForgotPassword)
+Router.post('/seller/reset-password', resetPassword)
 
 export default Router;
