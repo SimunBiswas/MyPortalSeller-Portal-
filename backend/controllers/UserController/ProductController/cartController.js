@@ -69,3 +69,46 @@ export const deleteFromCart = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+// Decrement the quantity of a product in the cart
+export const decrementQuantity = async (req, res) => {
+  try {
+    const { productId, color, size } = req.body;
+    const userId = req.user._id; // Assuming you have authenticated the user and stored the user ID in req.user._id
+
+    // Find the user's cart
+    const cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(404).json({ message: 'Cart not found' });
+    }
+
+    // Find the index of the product in the cart
+    const productIndex = cart.items.findIndex(
+      (item) =>
+        item.productId.toString() === productId &&
+        item.color === color &&
+        item.size === size
+    );
+
+    if (productIndex === -1) {
+      return res.status(404).json({ message: 'Product not found in cart' });
+    }
+
+    // Decrement the quantity of the product
+    cart.items[productIndex].quantity -= 1;
+
+    // If the quantity becomes 0 or negative, remove the product from the cart
+    if (cart.items[productIndex].quantity <= 0) {
+      cart.items.splice(productIndex, 1);
+    }
+
+    // Save the updated cart
+    await cart.save();
+
+    res.status(200).json({ message: 'Product quantity updated', cart });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
