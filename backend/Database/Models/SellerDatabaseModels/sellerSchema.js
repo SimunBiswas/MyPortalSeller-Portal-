@@ -10,7 +10,7 @@ const SellerSchmea = new mongoose.Schema({
                 reqired:true
             },
             otp: {
-                type: Number,
+                type: String,
                 
               },
               avatar: {

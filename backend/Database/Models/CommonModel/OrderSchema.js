@@ -60,6 +60,11 @@ const orderSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    seller:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'seller',
+        required: true
+    },
     // Payment information
     paymentInfo: {
         id: {

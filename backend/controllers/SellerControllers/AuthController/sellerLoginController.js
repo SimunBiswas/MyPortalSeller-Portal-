@@ -12,7 +12,7 @@ export const LoginSeller = async (req, res) => {
                 message: "Seller Does Not Exist",
             });
         }
-
+        
         const isPasswordValid = await bcrypt.compare(password, seller.password);
        console.log(isPasswordValid)
         if (!isPasswordValid) {

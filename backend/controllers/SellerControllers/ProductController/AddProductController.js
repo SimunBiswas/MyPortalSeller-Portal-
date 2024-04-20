@@ -6,8 +6,8 @@ export const addProduct = async (req, res) => {
         const { productName, description, price, quantity, category, images, brand, specifications,discount } = req.body;
 
         // Assuming sellerId is available in the request object (e.g., from authentication middleware)
-        const { sellerId } = req.sellerId._id
-
+        const  sellerId  = req.sellerId.id
+        console.log(sellerId)
         // Creating a new product instance
         const newProduct = new Product({
             sellerId,
