@@ -30,7 +30,7 @@ function App() {
       try {
         const response = await axios.get("http://localhost:5500/api/v6/products");
         setProducts(response.data);
-        console.log(response.data)
+        console.log(products)
       } catch (error) {
         console.error("Error fetching products:", error);
       }
