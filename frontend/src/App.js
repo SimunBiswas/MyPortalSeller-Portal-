@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Home from "./Customer/pages/Home/Home";
 import Brands from "./Customer/pages/Brands/Brands";
 import Cart from "./Customer/pages/Cart/Cart";
@@ -20,6 +22,23 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 function App() {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:5500/api/v6/products");
+        setProducts(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);  
+  
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       <BrowserRouter>
