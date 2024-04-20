@@ -6,6 +6,7 @@ import React from "react";
 import product from "./Images/product1.png";
 import suitimg from "./Images/suits.avif";
 import "../../Components/styles/CategoryBanner.css";
+import {items} from ""
 
 const products = [
   { id: 1, src: suitimg, alt: "Product not found", name: "KURTAS" },
@@ -38,9 +39,9 @@ const CategoryBanner = () => {
     <>
       <div class="row">
         <div class=" category-banner d-flex col-lg-12 col-md-12 col-sm-12 col-12 p-4 ">
-          {products.map((product) => {
+          {products.map((product, key) => {
             return (
-              <div class="product-item">
+              <div class="product-item" key={product.id}>
                 <div className="col product-img ">
                   <img
                     class="img-circle product-img"
