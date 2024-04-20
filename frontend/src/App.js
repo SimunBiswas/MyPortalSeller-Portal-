@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 import Home from "./Customer/pages/Home/Home";
 import Brands from "./Customer/pages/Brands/Brands";
 import Cart from "./Customer/pages/Cart/Cart";
@@ -10,7 +10,6 @@ import Contectus from "./Customer/pages/ContectUs/Contectus";
 import Orders from "./Customer/pages/Orders/Orders";
 import PrivecyandPolicy from "./Customer/pages/Privecy&Policy/PrivecyandPolicy";
 import ProductDeatil from "./Customer/pages/ProductDetails/ProductDeatil";
-import Products from "./Customer/pages/Products/Products";
 import ReturnPolicy from "./Customer/pages/ReturnPolicy/ReturnPolicy";
 import ShippingInfo from "./Customer/pages/ShippingInfo/ShippingInfo";
 import TermAndCondition from "./Customer/pages/Terms&Conditions/TermAndCondition";
@@ -18,26 +17,27 @@ import UserDashBoard from "./Customer/pages/UserDashboard/UserDashBoard";
 import Navbar from './Customer/Components/Navbar';
 import Footer from "./Customer/Components/Footer";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Products from "./Customer/pages/Products/Products";
 
 
 
 function App() {
 
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:5500/api/v6/products");
-        setProducts(response.data);
-        console.log(products)
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:5500/api/v6/products");
+  //       setProducts(response.data);
+  //       console.log(products)
+  //     } catch (error) {
+  //       console.error("Error fetching products:", error);
+  //     }
+  //   };
 
-    fetchProducts();
-  }, []);  
+  //   fetchProducts();
+  // }, []);  
   
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
