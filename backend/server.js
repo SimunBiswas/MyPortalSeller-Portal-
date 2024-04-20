@@ -7,6 +7,8 @@ import user from './routes/UserRoute/userRoute.js'
 import cookieParser from 'cookie-parser';
 import order from './routes/OrderRoute/orderRoute.js'
 import ProductRouter from "./routes/ProductRoute/productRoute.js";
+import fileUpload from "express-fileupload";
+import cloudinary from "./utils/Cloudinary/Cloudinary.js";
 
 const app = express();
 app.use(cookieParser(
@@ -22,6 +24,11 @@ const PORT = process.env.PORT || 5500;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+
+}))
 
 // CORS settings
 app.use(cors({
@@ -29,6 +36,12 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add more methods as needed
     allowedHeaders: ['Content-Type', 'Authorization'], // Add more headers as needed
 }));
+
+
+cloudinary.uploader.upload("path_to_your_file", function(result) {
+    console.log(result);
+  });
+  
 
 // Routes
 app.use('/api/v6', user)
