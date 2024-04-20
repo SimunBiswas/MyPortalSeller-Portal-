@@ -1,21 +1,20 @@
-.category-banner{
-  padding: 16px;
+.category-banner {
+  /* padding: 16px; */
   overflow: auto;
-  }
+}
 
-  .category-banner::-webkit-scrollbar{
-    width: 0;
-  }
+.category-banner::-webkit-scrollbar {
+  width: 0;
+}
 
-  .product-item {
-    padding: 16px;
-    
-  }
+.product-item {
+  padding: 16px;
+}
 
-  .product-img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-  }
+.product-img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}

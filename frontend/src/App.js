@@ -24,7 +24,7 @@ function App() {
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       <BrowserRouter>
         <Navbar />
-        <div className="flex-grow-1">
+        <div className="flex-grow-1 p-4">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/brands" element={<Brands />} />
