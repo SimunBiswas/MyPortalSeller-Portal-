@@ -1,9 +1,25 @@
 import { Product } from "../../../Database/Models/CommonModel/productSchema.js";
+import cloudinary from 'cloudinary'
 
 export const addProduct = async (req, res) => {
     try {
+
+        if (!req.files || Object.keys(req.files).length === 0) {
+            return res.status(400).json({
+                message:'Product image Required'
+            })
+        }
+
+        const {images} = req.files;
+        const allowedFormats = ["image/jpg", "image/jpeg", "image/webp"];
+
+        if (!allowedFormats.includes(images.mimetype)) {
+            return res.status(400).json({
+                message: "Inavlid File Type, Only JPG ,PNG,WEBP Formats are Allowed",
+            })
+        }
         // Extracting required fields from request body
-        const { productName, description, price, quantity, category, images, brand, specifications,discount } = req.body;
+        const { productName, description, price, quantity, category,  brand, specifications,discount } = req.body;
 
         // Assuming sellerId is available in the request object (e.g., from authentication middleware)
         const  sellerId  = req.sellerId.id
@@ -16,12 +32,18 @@ export const addProduct = async (req, res) => {
             price,
             quantity,
             category,
-            images,
             brand,
             specifications,
             
             discount
         });
+
+        const cloudinaryResponse = await cloudinary.v2.uploader.upload(
+            images.tempFilePath
+        )
+        if (!cloudinaryResponse || cloudinaryResponse.error) {
+            console.error("cloudinary error");
+        }
 
         // Saving the new product to the database
         await newProduct.save();
