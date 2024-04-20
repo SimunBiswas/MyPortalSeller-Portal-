@@ -19,31 +19,41 @@ const products = [
   { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
   { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
   { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
 ];
 
 const CategoryBanner = () => {
   return (
     <>
-      <div class="container ">
-        <div class="row">
-          <div class=" category-banner d-flex col-lg-12 col-md-4 col-sm-6 col-12 ">
-            {products.map((product) => {
-              return (
-                <div class="product-item">
-                  <div className="col product-img ">
-                    <img
-                      class="img-circle product-avatar"
-                      src={product.src}
-                      alt=""
-                    />
-                  </div>
-                  <div className="col product-name">
-                    <h6 class="text-center">{product.name}</h6>
-                  </div>
+      <div class="row">
+        <div class=" category-banner d-flex col-lg-12 col-md-12 col-sm-12 col-12 ">
+          {products.map((product) => {
+            return (
+              <div class="product-item">
+                <div className="col product-img ">
+                  <img
+                    class="img-circle product-img"
+                    src={product.src}
+                    alt=""
+                  />
                 </div>
-              );
-            })}
-          </div>
+                <div className="col product-name">
+                  <h6 class="text-center">{product.name}</h6>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
