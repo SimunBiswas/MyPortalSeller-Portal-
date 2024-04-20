@@ -1,35 +1,25 @@
+
 .foot-panel{
-    
-    
   height: 100px;
   display: flex;
   justify-content: space-evenly;
-  width:100%
+  width: auto;
   
 }
-
-.container {
-padding: 0;
-margin: auto;
-max-width: 100%; 
-}
-
-
-.foot-panel{    
-  height: 100px;
-  display: flex;
-  justify-content: space-evenly;  
-
+.foot-panel div{
+  flex-grow: 1;
+  text-align: center;
 }
 
 .foot-panel2{
   background-color: #222f3d;
   color: white;
   height: 300px;
-  padding-top: 15px;
+  padding-top: 25px;
   display:flex;
   justify-content: space-evenly;
   text-decoration: none;
+  width: 100%;
  
   
   
@@ -38,14 +28,14 @@ max-width: 100%;
 text-decoration: none;
 
 }
-ul{
-  margin-top: 20px;
-}
+
 ul a{
   display: block;
   font-size: 0.85rem;
-  margin-top: 10px;
+  padding-top: 10px;
   color: #dddddd;
+  text-decoration: none;
+  
 }
 
 .foot-panel3{
@@ -68,46 +58,54 @@ text-decoration: none;
 }
 /* For screens smaller than 576px (e.g., phones) */
 @media (max-width: 575.98px) {
-.container{
-  margin-bottom: 90px;
 
-}
-  .foot-panel {
+.foot-panel {
    
-    
-    height:auto;
-    width: auto;
-  }
+  flex-wrap: wrap;
+  height:auto;
+  
+  
+}
   
   .foot-panel > div {
+    flex: 0 1 calc(33.33% - 10px);
     
-    margin-bottom: 20px; /* Add some space between the columns */
   }
   .foot-panel div h4{
-    font-size: 15px;
-  }
-  .foot-panel i{
-    font-size: 2rem;
-    
+    font-size: 13px;
+   
   }
   
+  
+
   .foot-panel2 {
     flex-direction: column;
     height: auto;
-    align-items: center;
-    text-align: center;
+   
+    
   }
+  
+  .foot-panel2 hr{
+    border: none;
+  border-top: 2px solid white; /* Adjust the thickness as needed */
+  margin: 1em 0;
+  width: 100%;
+  }
+
+
+
   .foot-panel3 {
       height: auto;
       padding: 20px 0; /* Adjust padding for smaller screens */
       align-items: center; 
       padding-top: 2px;
-      padding-bottom: 80px;
+      padding-bottom: 85px;
+      
     }
     
     .foot-panel3 i {
       font-size: 2rem; /* Decrease icon size for smaller screens */
-      margin: 10px; /* Add some space around the icons */
+      padding-bottom: 10px; /* Add some space around the icons */
     }
 }
 
@@ -117,6 +115,7 @@ text-decoration: none;
   .foot-panel {
     flex-wrap: wrap;
     height: auto;
+   
   }
   
   .foot-panel > div {
@@ -128,10 +127,11 @@ text-decoration: none;
     height: auto;
     align-items: center;
     text-align: center;
+   
   }
   .foot-panel3 i {
       font-size: 3rem; /* Adjust icon size for medium-sized screens */
-      margin: 15px; /* Adjust margin for medium-sized screens */
+      padding-bottom: 15px;/* Adjust margin for medium-sized screens */
       align-items: center;
     }
 }
@@ -140,12 +140,17 @@ text-decoration: none;
 @media (min-width: 992px) {
   .foot-panel {
     height: 100px;
-    
+   
   }
+  
   
   .foot-panel2 {
     height: 300px;
+    
    
+  }
+  .foot-panel2 hr{
+    display: none;
   }
   .foot-panel3 {
       height: 150px; /* Reset height for desktop screens */
@@ -162,10 +167,12 @@ text-decoration: none;
   list-style-type: none;
   padding: 0;
   display: none;
+  text-align: center;
 }
 
 .mobile-menu.show {
   display: block;
+  
 }
 
 .toggle-btn {
@@ -176,6 +183,7 @@ text-decoration: none;
   font-size: inherit;
   font-family: inherit;
   color: inherit;
+  
 }
 
 .toggle-btn:focus {
