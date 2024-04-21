@@ -1,10 +1,16 @@
 // have to show all products with array gatting from redux
-// import Data from "./Products.json";
 import React from "react";
 // import { useState } from "react";
 
+//---------- Sample data added in data folder -----------//
+
+// import Data from "../../data/Products.json";
+
+//-------------------------------------------------------//
+
+
 // import ShopCategory from "./ShopCategory";
-// import ProductCart from "./ProductCart";
+// import ProductCard from "./ProductCard";
 // import Pagination from "./Pagination";
 // import { Link } from "react-router-dom";
 
