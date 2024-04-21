@@ -18,6 +18,7 @@ import Navbar from './Customer/Components/Navbar';
 import Footer from "./Customer/Components/Footer";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Products from "./Customer/pages/Products/Products";
+import ProductCard from "./Customer/Components/ProductCard";
 
 
 
@@ -60,9 +61,16 @@ function App() {
             <Route path="/userdashboard" element={<UserDashBoard />} />
           </Routes>
         </div>
+        <ProductCard
+        imageUrl="https://via.placeholder.com/250x250"
+        title="Sample Product"
+        price="$19.99"
+      />
         <Footer />
       </BrowserRouter>
+      
     </div>
+  
   );
 }
 
