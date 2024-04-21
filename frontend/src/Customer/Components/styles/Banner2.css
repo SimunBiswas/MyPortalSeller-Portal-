@@ -1,66 +1,80 @@
-.grids{
-    display:grid;
-    grid-template-columns:auto auto auto auto;
-    gap:0px;
+.heading {
     background-color: #C7DB9E;
-    padding: 10px;
-    justify-content:space-around;
-    height: 500px;
-   text-align: center;      
-}
-.heading{
     text-align: center;
-    background-color:#C7DB9E ;
     margin-bottom: 0px;
-    padding: 30px;
-    font-size: 35px;   
+    padding: 20px;
 }
-.heading:hover{
+.heading:hover {
     animation: zoom 3s infinite alternate;
 }
-.animateImg{
-    animation: zoom 3s infinite alternate;
+
+.grids {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    background-color: #C7DB9E;
+}
+
+.grids > div {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #050404;
+    padding: 20px;
+    font-weight: 400;
+    text-align: center;
+    height: 90px;
     cursor: pointer;
 }
-
-.grids > div{
-display:inline;
-    border: 3px solid #050404;
-    padding: 20px;
-    text-decoration: underline;
-    font-weight: 600;
-    font-size: 25px;
-    text-align: center;
-    width: 270px;
-    height: 120px;
-    background-color: #C7DB9E;
-    cursor: pointer;    
-}
-.grids :hover {
+.grids>div:hover {
     animation: zoom 3s infinite alternate;
+    font-size: 16px;
+    font-weight: 600;
+    
 }
 
-@keyframes zoom {
-    0% { 
-        width: 270px;
-    height: 120px;
-    }
-    25% {  
-        width: 272px;
-    height: 122px;
-    text-align: center;
+.animateImg {
+    max-width: 100%;
+    cursor: pointer;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
+@media only screen and (max-width: 767px) {
+    .grids {
+        justify-content: space-between;
+        max-width: none;
+        background-color: #6BB3BC;
     }
-    50% {
-        width: 272px;
-        height: 122px;
+    .heading{
+        background-color: #6BB3BC;
     }
-    75% {
-        width: 272px;
-        height: 122px;
-    }
-    100% {
-        width: 272px;
-        height: 122px; 
+    .grids>div {
+        width: calc(100% / 6);
+        max-width: none;
+        background-color: #6BB3BC;
+        white-space: nowrap;
+        overflow: hidden; 
+        text-overflow: ellipsis;    
+    } 
+}
+
+@media only screen and (max-width: 888px) {
+    .grids>div {
+        width: calc(100% / 4);
+        background-color: #6BB3BC;
+        margin: 4px;
+        white-space:unset;   
     }
 }
+
+@media only screen and (min-width: 889px) {
+    .grids>div {
+        width: calc(100% / 4);
+        margin: 20px;   
+        background-color: #C7DB9E;  
+    }
+}
+
+
