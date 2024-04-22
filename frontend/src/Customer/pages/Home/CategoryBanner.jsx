@@ -12,38 +12,48 @@ const products = [
   { id: 2, src: product, alt: "Product not found", name: "TOPS" },
   { id: 3, src: suitimg, alt: "Product not found", name: "DRESSES" },
   { id: 4, src: product, alt: "Product not found", name: "SAREES" },
-  { id: 4, src: suitimg, alt: "Product not found", name: "SUITS" },
-  { id: 4, src: product, alt: "Product not found", name: "LINGERIE" },
-  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 4, src: product, alt: "Product not found", name: "LINGERIE" },
-  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 4, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 5, src: suitimg, alt: "Product not found", name: "SUITS" },
+  { id: 6, src: product, alt: "Product not found", name: "LINGERIE" },
+  { id: 7, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 8, src: product, alt: "Product not found", name: "LINGERIE" },
+  { id: 9, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 10, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 11, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id:12, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 13, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 14, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 15, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 16, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 17, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 18, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 19, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 20, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 21, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 22, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 23, src: suitimg, alt: "Product not found", name: "LINGERIE" },
 ];
 
 const CategoryBanner = () => {
   return (
     <>
-      <div class="container ">
-        <div class="row">
-          <div class=" category-banner d-flex col-lg-12 col-md-4 col-sm-6 col-12 ">
-            {products.map((product) => {
-              return (
-                <div class="product-item">
-                  <div className="col product-img ">
-                    <img
-                      class="img-circle product-avatar"
-                      src={product.src}
-                      alt=""
-                    />
-                  </div>
-                  <div className="col product-name">
-                    <h6 class="text-center">{product.name}</h6>
-                  </div>
+      <div className="row">
+        <div className=" category-banner d-flex col-lg-12 col-md-12 col-sm-12 col-12 p-4 ">
+          {products.map((product, key) => {
+            return (
+              <div className="product-item" key={product.id}>
+                <div className="col product-img ">
+                  <img
+                    className="img-circle product-img"
+                    src={product.src}
+                    alt=""
+                  />
                 </div>
-              );
-            })}
-          </div>
+                <div className="col product-name">
+                  <h6 className="text-center">{product.name}</h6>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
