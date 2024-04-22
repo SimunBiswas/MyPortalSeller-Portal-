@@ -37,7 +37,7 @@ const CategoryBanner = () => {
   return (
     <>
       <div className="row">
-        <div className=" category-banner d-flex col-lg-12 col-md-12 col-sm-12 col-12 p-4 ">
+        <div className=" category-banner d-flex col-lg-12 col-md-12 col-sm-12 col-12 pt-5 pb-0 top-50 ">
           {products.map((product, key) => {
             return (
               <div className="product-item" key={product.id}>
