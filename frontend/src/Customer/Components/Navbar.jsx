@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Components/styles/navbar.css";
 import BottomNavbar from "./BottomNavbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
+  const [headerHidden, setHeaderHidden] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHeaderHidden(true);
+      } else {
+        setHeaderHidden(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      {/* Header Section Begin */}
-      <header className="header">
-        <div className="header__top">
+      <header className="header d-flex flex-column">
+        <div className={`header__top ${headerHidden ? "hide" : ""}`}>
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-md-7">
@@ -17,14 +35,14 @@ function Navbar() {
                 </div>
               </div>
               <div className="col-lg-6 col-md-5">
-                <div className="header__top__right">
+                <div className="header__top__right d-flex justify-content-end">
                   <div className="header__top__links">
-                    <Link style={{ textDecoration: 'none' }}  to="#">Sign in</Link>
-                    <Link style={{ textDecoration: 'none' }}  to="#">FAQs</Link>
+                    <Link to="#">Sign in</Link>
+                    <Link to="#">FAQs</Link>
                   </div>
                   <div className="header__top__hover">
                     <span>
-                      Usd <i className="arrow_carrot-down"></i>
+                      USD <i className="arrow_carrot-down"></i>
                     </span>
                     <ul>
                       <li>USD</li>
@@ -37,79 +55,97 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-3 col-md-3">
-              <div className="header__logo">
-                <Link style={{ textDecoration: 'none' }}  to="./index.html">
-                  <img src="img/logo.png" alt="" />
-                </Link>
+        <nav
+          className={`${
+            headerHidden ? "header__bottom_top" : "header__bottom"
+          } navbar navbar-expand-lg navbar-light bg-light sticky-top`}
+        >
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="/">
+              ReVogue
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="offcanvas offcanvas-end"
+              tabIndex="-1"
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+            >
+              <div className="offcanvas-header">
+                <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+                  Offcanvas
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
               </div>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <nav className="header__menu mobile-menu">
-                <ul>
-                  <li className="active">
-                    <Link style={{ textDecoration: 'none' }}  to="/">Women</Link>
+              <div className="offcanvas-body d-flex justify-content-between">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/">
+                      Home
+                    </Link>
                   </li>
-                  <li>
-                    <Link style={{ textDecoration: 'none' }}  to="/">Men</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/products">
+                      Products
+                    </Link>
                   </li>
-                  <li>
-                    <Link style={{ textDecoration: 'none' }}  to="/">Kids</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/products">
+                      Women
+                    </Link>
                   </li>
-                  
-                  <li>
-                    <Link style={{ textDecoration: 'none' }}  to="/">Pages</Link>
-                    <ul className="dropdown">
-                      <li>
-                        <Link style={{ textDecoration: 'none' }}  to="./about.html">About Us</Link>
-                      </li>
-                      <li>
-                        <Link style={{ textDecoration: 'none' }}  to="./shop-details.html">Shop Details</Link>
-                      </li>
-                      <li>
-                        <Link style={{ textDecoration: 'none' }}  to="./shopping-cart.html">Shopping Cart</Link>
-                      </li>
-                      <li>
-                        <Link style={{ textDecoration: 'none' }}  to="./checkout.html">Check Out</Link>
-                      </li>
-                      <li>
-                        <Link style={{ textDecoration: 'none' }}  to="./blog-details.html">Blog Details</Link>
-                      </li>
-                    </ul>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/products">
+                      Men
+                    </Link>
                   </li>
-                  <li>
-                    <Link style={{ textDecoration: 'none' }}  to="/">Offers</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="#">
+                      Kids
+                    </Link>
                   </li>
-                  <li>
-                    <Link style={{ textDecoration: 'none' }}  to="/">Contacts</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="#">
+                      Home
+                    </Link>
                   </li>
                 </ul>
-              </nav>
-            </div>
-            <div className="col-lg-3 col-md-3">
-              <div className="header__nav__option">
-                <Link style={{ textDecoration: 'none' }}  to="#" className="search-switch">
-                  <img src="img/icon/search.png" alt="" />
-                </Link>
-                <Link style={{ textDecoration: 'none' }}  to="#">
-                  <img src="img/icon/heart.png" alt="" />
-                </Link>
-                <Link style={{ textDecoration: 'none' }}  to="#">
-                  <img src="img/icon/cart.png" alt="" /> <span>0</span>
-                </Link>
-                <div className="price">$0.00</div>
+                <form className="d-flex p-2" role="search">
+                  <div className="d-flex m-1">
+                  <input
+                    className="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button className="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center p-2">
+                  <FontAwesomeIcon className="fs-2 px-3" icon={faCartShopping} />
+                  <FontAwesomeIcon className="fs-2 px-3" icon={faUser} />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <div className="canvas__open">
-            <i className="fa fa-bars"></i>
-          </div>
-        </div>
+        </nav>
       </header>
-      <BottomNavbar/>
-      {/* Header Section End */}
+      <BottomNavbar />
     </>
   );
 }
