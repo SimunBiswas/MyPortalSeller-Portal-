@@ -7,6 +7,7 @@ import Banner2 from "./Banner2";
 import Banner3 from "./Banner3";
 import BottomCategoryBanner from "./BottomCategoryBanner";
 import CategoryBanner from "./CategoryBanner";
+import Brand from "../../Components/Brand";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
         <h3>Home</h3>
         <CategoryBanner />
         <Banner1 />
+        <Brand/>
         <Banner2 />
         <Banner3 />
         <BottomCategoryBanner />
