@@ -1,59 +1,103 @@
-.body{
-    width: 100px;
+/* productCard.css */
+.container-fluid {
+  padding: 0;
+  
 }
+
+
+
+.filter {
+  /* Add background color for the filter section */
+  flex: 0 0 25%; /* Take 25% of the container width */
+}
+
 .product-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: auto;
-    justify-content: space-evenly;
-  }
-  
+  display: flex;
+  flex: 0 0 75%; /* Take 75% of the container width */
+}
+
 .product-card {
-    
-    width: 300px;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    justify-content: space-evenly;
-    
-    
-  }
+  display: flex;
+  flex-direction: column;
+  border: none;
   
-  .product-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px; /* Add margin between product cards */
+}
+
+.product-image {
+  width: 100%; /* Set image width to fill its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.product-details {
+  padding: 20px;
+}
+
+.product-title {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #007bff; /* Change price color */
+  margin-bottom: 10px;
+}
+
+.add-to-cart-button {
+  background-color: #28a745; /* Change button background color */
+  color: white; /* Change button text color */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-self: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #218838; /* Darken button color on hover */
+}
+.grid{
+  text-align: center;
+  background-color: beige;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
-  .product-details {
-    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
-  
-  .product-title {
-    margin: 10px 0;
-    white-space: nowrap; /* Prevent line breaks */
-    overflow: hidden; /* Hide overflow content */
-    font-size: clamp(14px, 2vw, 20px);
-    text-overflow: ellipsis; /* Display ellipsis (...) when content overflows */
-  }
-  
-  .product-price {
-    font-weight: bold;
-  }
-  
-  .add-to-cart-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-to-cart-button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.column-buttons {
+  margin-top: 10px;
+}
+
+.column-buttons button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.column-buttons button:last-child {
+  margin-right: 0;
+}
