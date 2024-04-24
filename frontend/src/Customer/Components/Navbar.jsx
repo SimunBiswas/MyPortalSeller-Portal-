@@ -119,7 +119,7 @@ function Navbar() {
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/contectus">
-                      Contact Us
+                      Contact
                     </Link>
                   </li>
                 </ul>
