@@ -118,8 +118,8 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="#">
-                      Home
+                    <Link className="nav-link" to="/contectus">
+                      Contact Us
                     </Link>
                   </li>
                 </ul>
