@@ -11,7 +11,7 @@ import './styles/Products.css'
 //-------------------------------------------------------//
 
 // import ShopCategory from "./ShopCategory";
-// import ProductCard from "./ProductCard";
+//  import ProductCard from "./ProductCard";
 // import Pagination from "./Pagination";
 // import { Link } from "react-router-dom";
 
@@ -50,15 +50,11 @@ function Products() {
   // };
 
   return (
-    <div className="Product-Page">
-      <div className="Side-Bar-left">
-        side Bar
-      </div>
-      <div className="Side-Bar-Right">
-        <ProductCard/>
-      </div>
 
-    </div>
+    <>
+    <h1>Products</h1>
+    <ProductCard/>
+    </>
     // <div>
     //   <div className="products container">
     //     Refined by
