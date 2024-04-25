@@ -1,5 +1,7 @@
 // have to show all products with array gatting from redux
 import React from "react";
+import ProductCard from "./ProductCard";
+import './styles/Products.css'
 // import { useState } from "react";
 
 //---------- Sample data added in data folder -----------//
@@ -7,7 +9,6 @@ import React from "react";
 // import Data from "../../data/Products.json";
 
 //-------------------------------------------------------//
-
 
 // import ShopCategory from "./ShopCategory";
 // import ProductCard from "./ProductCard";
@@ -49,9 +50,15 @@ function Products() {
   // };
 
   return (
+    <div className="Product-Page">
+      <div className="Side-Bar-left">
+        side Bar
+      </div>
+      <div className="Side-Bar-Right">
+        <ProductCard/>
+      </div>
 
-    <>
-    <h1>Products</h1></>
+    </div>
     // <div>
     //   <div className="products container">
     //     Refined by

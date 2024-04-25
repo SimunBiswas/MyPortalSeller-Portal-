@@ -1,0 +1,15 @@
+.Product-Page{
+    display: flex;
+}
+.Side-Bar-left{
+    width: 300px;
+    height: 900px;
+    background-color: aliceblue;
+} 
+
+.Side-Bar-Right{
+    display: flex;
+    width: 100%;
+    height: 900px;
+    background-color: antiquewhite;
+}
