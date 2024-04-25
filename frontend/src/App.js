@@ -16,6 +16,7 @@ import Footer from "./Customer/Components/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Products from "./Customer/pages/Products/Products";
 import Login from "./Customer/Components/Login";
+import ProductDetail from "./Customer/Components/ProductDetail";
 
 function App() {
   return (
@@ -50,7 +51,7 @@ function AppContent() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/privecy&Policy" element={<PrivecyandPolicy />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/product/:id" element={<ProductDeatil />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/returnPolicy" element={<ReturnPolicy />} />
           <Route path="/shippingInfo" element={<ShippingInfo />} />
           <Route path="/terms&conditions" element={<TermAndCondition />} />
