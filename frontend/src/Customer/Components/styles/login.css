@@ -3,16 +3,18 @@
   padding: 0;
 }
 
-body {
+/* body {
   padding: 6em 4em;
   background: url("../images/loginBg.png");
   background-repeat: no-repeat;
   overflow: hidden;
   width: 100%;
-  height: 100%;
-}
+  height: 100%; */
+/* } */
 
 .container {
+    background: url("../images/loginBg.png");
+
   border-radius: 30px;
   z-index: 10;
   background: white;

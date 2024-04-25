@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/productCard.css';
 import ShopCategory from './ShopCategory';
 const products =[{
@@ -176,7 +176,7 @@ const ProductCard = ({ product })=> {
   
   );
 };
-
+/*
 const ProductList = () => {
   const [columns, setColumns] = useState(3); // Default to 3 columns
 
@@ -200,20 +200,68 @@ const ProductList = () => {
       <div className={`col-sm-${12 - 3} p-5`}>
         <div className='grid p-5'><h1 >Fashion</h1>
         <div className="column-buttons">
-              <button onClick={() => handleColumnChange(3)}>3 Columns</button>
-              <button onClick={() => handleColumnChange(5)}>5 Columns</button>
+              <button className='d-none d-sm-inline-block' onClick={() => handleColumnChange(3)}>3 Columns</button>
+              <button className='d-none d-sm-inline-block' onClick={() => handleColumnChange(5)}>5 Columns</button>
             </div>
         </div>
-        {rows.map((row, index) => (
-        <div className={`product-list columns-${columns}`}key={index}>
-          {row.map(product => (
-        <ProductCard key={product.id} product={product} />
-        ))}
+        
+        <div className={`row row-cols-1 row-cols-sm-2 row-cols-md-${columns}`}>
+          {products.map(product => (
+            <div className="col" key={product.id}>
+            <ProductCard product={product} />
+          </div>  
+          ))}
         </div>
-        ))}
+        
       </div>
     </div>
   </div>
 );
+};
+*/
+
+const ProductList = () => {
+  const [columns, setColumns] = useState(getInitialColumns());
+
+  function getInitialColumns() {
+    return window.innerWidth < 768 ? 2 : 3; // Set 2 columns for mobile view, 3 for desktop
+  }
+
+  useEffect(() => {
+    function handleResize() {
+      setColumns(getInitialColumns());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <div className='container-fluid'>
+      <div className='row filter'>
+        <div className='col-sm-3 p-5'>
+          <ShopCategory />
+        </div>
+        <div className={`col-sm-${12 - 3} p-5`}>
+          <div className='grid p-5'>
+            <h1>Fashion</h1>
+            <div className="column-buttons">
+              <button className='d-none d-sm-inline-block' onClick={() => setColumns(3)}>3 Columns</button>
+              <button className='d-none d-sm-inline-block' onClick={() => setColumns(5)}>5 Columns</button>
+            </div>
+          </div>
+          <div className={`row row-cols-1 row-cols-sm-2 row-cols-md-${columns}`}>
+            {products.map(product => (
+              <div className="col" key={product.id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 export default ProductList;
