@@ -37,7 +37,7 @@ function Navbar() {
               <div className="col-lg-6 col-md-5">
                 <div className="header__top__right d-flex justify-content-end">
                   <div className="header__top__links">
-                    <Link to="#">Sign in</Link>
+                    <Link to="/login">Sign in</Link>
                     <Link to="#">FAQs</Link>
                   </div>
                   <div className="header__top__hover">
@@ -59,6 +59,7 @@ function Navbar() {
           className={`${
             headerHidden ? "header__bottom_top" : "header__bottom"
           } navbar navbar-expand-lg navbar-light bg-light sticky-top`}
+          
         >
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
