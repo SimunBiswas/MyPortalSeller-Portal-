@@ -6,6 +6,7 @@ import React from "react";
 import "../Components/styles/ProductDetail.css";
 import product_img from "../pages/Home/Images/small_shirt.avif";
 import modal_img from "../pages/Home/Images/modal_shirt.avif";
+import { Link } from 'react-router-dom';
 
 function ProductDetail() {
   return (
@@ -80,7 +81,7 @@ function ProductDetail() {
                   id="product-details-tab"
                 >
                   <nav className="nav nav-tabs" role="tablist">
-                    <a
+                    <Link
                       id="product-details-tab-tab-2"
                       href="#"
                       role="tab"
@@ -90,8 +91,8 @@ function ProductDetail() {
                       className="nav-item nav-link active"
                     >
                       RETURNS
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       id="product-details-tab-tab-3"
                       href="#"
                       role="tab"
@@ -102,7 +103,7 @@ function ProductDetail() {
                       className="nav-item nav-link"
                     >
                       OUR PROMISE
-                    </a>
+                    </Link>
                   </nav>
                   <div className="tab-content">
                     <div
@@ -120,12 +121,12 @@ function ProductDetail() {
                           details on our Returns Policies, please
                         </span>
                         <span>
-                          <a
+                          <Link
                             href="https://www.ajio.com/return-refund-policy"
                             target="_blank"
                           >
                             click here
-                          </a>
+                          </Link>
                           ․
                         </span>
                       </div>
@@ -222,14 +223,14 @@ function ProductDetail() {
                       </div>
                       <div className="promo-tnc-blck">
                         <span className="promo-tnc">
-                          <a
+                          <Link
                             href="/ajio-own-sale-policy"
                             title="T&amp;C"
                             target="_blank"
                             aria-label="T&amp;C"
                           >
                             T&amp;C
-                          </a>
+                          </Link>
                         </span>
                       </div>
                     </div>
@@ -241,12 +242,12 @@ function ProductDetail() {
                       </div>
                       <div
                         className="promo-desc"
-                        aria-label="Get Upto Rs.300 Off on 1990 and Above. <a target='_blank' href=&quot;/s/sale300-5345-47911&quot;>View All Products></a>"
+                        aria-label="Get Upto Rs.300 Off on 1990 and Above. <Link target='_blank' href=&quot;/s/sale300-5345-47911&quot;>View All Products></Link>"
                       >
                         Get Upto Rs.300 Off on 1990 and Above.{" "}
-                        <a target="_blank" href="/s/sale300-5345-47911">
+                        <Link target="_blank" href="/s/sale300-5345-47911">
                           View All Products&gt;
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -265,7 +266,7 @@ function ProductDetail() {
               </p>
               <div className="color-variant-block">
                 <div className="color-swatch selected">
-                  <a
+                  <Link
                     href="/teamspirit-regular-fit-striped-crew-neck-t-shirt/p/443003378_bluemelange"
                     className="swatch-item"
                   >
@@ -275,10 +276,10 @@ function ProductDetail() {
                       alt="blue-melange"
                       title="blue-melange"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="color-swatch undefined">
-                  <a
+                  <Link
                     href="/teamspirit-regular-fit-striped-crew-neck-t-shirt/p/443003378_grey"
                     className="swatch-item"
                   >
@@ -288,7 +289,7 @@ function ProductDetail() {
                       alt="grey"
                       title="grey"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="size-variant-block">
@@ -419,7 +420,7 @@ function ProductDetail() {
               </div>
               <div className="pdp-cart-buttons">
                 <div>
-                  <div className="pdp-addtocart-button" tabindex="-1" role="">
+                  <div className="pdp-addtocart-button" tabindex="-1">
                     <div className="btn-gold" role="button" tabindex="0">
                       <span className="ic-pdp-add-cart"></span>
                       <span aria-label="ADD TO BAG">ADD TO BAG</span>
