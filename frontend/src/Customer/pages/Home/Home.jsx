@@ -14,9 +14,10 @@ function Home() {
     <>
       <div>
         <h3>Home</h3>
+
         <CategoryBanner />
         <Banner1 />
-        <Brand/>
+        <Brand />
         <Banner2 />
         <Banner3 />
         <BottomCategoryBanner />

@@ -9,20 +9,17 @@ import Aboutus from "./Customer/pages/AboutUs/Aboutus";
 import Contectus from "./Customer/pages/ContectUs/Contectus";
 import Orders from "./Customer/pages/Orders/Orders";
 import PrivecyandPolicy from "./Customer/pages/Privecy&Policy/PrivecyandPolicy";
-import ProductDeatil from "./Customer/pages/ProductDetails/ProductDeatil";
 import ReturnPolicy from "./Customer/pages/ReturnPolicy/ReturnPolicy";
 import ShippingInfo from "./Customer/pages/ShippingInfo/ShippingInfo";
 import TermAndCondition from "./Customer/pages/Terms&Conditions/TermAndCondition";
 import UserDashBoard from "./Customer/pages/UserDashboard/UserDashBoard";
-import Navbar from './Customer/Components/Navbar';
+import Navbar from "./Customer/Components/Navbar";
 import Footer from "./Customer/Components/Footer";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import Products from "./Customer/pages/Products/Products";
-
-
+import ProductDetail from "./Customer/Components/ProductDetail";
 
 function App() {
-
   // const [products, setProducts] = useState([]);
 
   // useEffect(() => {
@@ -37,8 +34,8 @@ function App() {
   //   };
 
   //   fetchProducts();
-  // }, []);  
-  
+  // }, []);
+
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       <BrowserRouter>
@@ -53,7 +50,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/privecy&Policy" element={<PrivecyandPolicy />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<ProductDeatil />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/returnPolicy" element={<ReturnPolicy />} />
             <Route path="/shippingInfo" element={<ShippingInfo />} />
             <Route path="/terms&conditions" element={<TermAndCondition />} />
@@ -62,9 +59,7 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
-      
     </div>
-  
   );
 }
 

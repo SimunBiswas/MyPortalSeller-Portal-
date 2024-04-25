@@ -4,33 +4,30 @@
 
 import React from "react";
 import product from "./Images/product1.png";
-import suitimg from "./Images/suits.avif";
+import suit_img from "./Images/suits.avif";
 import "../../Components/styles/CategoryBanner.css";
 
 const products = [
-  { id: 1, src: suitimg, alt: "Product not found", name: "KURTAS" },
+  { id: 1, src: suit_img, alt: "Product not found", name: "KURTAS" },
   { id: 2, src: product, alt: "Product not found", name: "TOPS" },
-  { id: 3, src: suitimg, alt: "Product not found", name: "DRESSES" },
+  { id: 3, src: suit_img, alt: "Product not found", name: "DRESSES" },
   { id: 4, src: product, alt: "Product not found", name: "SAREES" },
-  { id: 5, src: suitimg, alt: "Product not found", name: "SUITS" },
+  { id: 5, src: suit_img, alt: "Product not found", name: "SUITS" },
   { id: 6, src: product, alt: "Product not found", name: "LINGERIE" },
-  { id: 7, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 7, src: suit_img, alt: "Product not found", name: "LINGERIE" },
   { id: 8, src: product, alt: "Product not found", name: "LINGERIE" },
-  { id: 9, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 10, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 11, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id:12, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 13, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 14, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 15, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 16, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 17, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 18, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 19, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 20, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 21, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 22, src: suitimg, alt: "Product not found", name: "LINGERIE" },
-  { id: 23, src: suitimg, alt: "Product not found", name: "LINGERIE" },
+  { id: 9, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 10, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 11, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 12, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 13, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 14, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 15, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 16, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 17, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 18, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 19, src: suit_img, alt: "Product not found", name: "LINGERIE" },
+  { id: 20, src: suit_img, alt: "Product not found", name: "LINGERIE" },
 ];
 
 const CategoryBanner = () => {
