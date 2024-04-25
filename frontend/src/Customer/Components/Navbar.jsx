@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <>
       <header className="header d-flex flex-column">
-        <div className={`header__top ${headerHidden ? "hide" : ""}`}>
+        {/* <div className={`header__top ${headerHidden ? "hide" : ""}`}>
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-md-7">
@@ -37,7 +37,7 @@ function Navbar() {
               <div className="col-lg-6 col-md-5">
                 <div className="header__top__right d-flex justify-content-end">
                   <div className="header__top__links">
-                    <Link to="/login">Sign in</Link>
+                    <Link to="#">Sign in</Link>
                     <Link to="#">FAQs</Link>
                   </div>
                   <div className="header__top__hover">
@@ -54,12 +54,11 @@ function Navbar() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <nav
           className={`${
             headerHidden ? "header__bottom_top" : "header__bottom"
           } navbar navbar-expand-lg navbar-light bg-light sticky-top`}
-          
         >
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
@@ -140,6 +139,9 @@ function Navbar() {
                   <FontAwesomeIcon className="fs-2 px-3" icon={faCartShopping} />
                   <FontAwesomeIcon className="fs-2 px-3" icon={faUser} />
                   </div>
+                  <button className="btn btn-primary text-white">
+                   <Link className="text-white" to="/login">Login</Link>
+                  </button>
                 </form>
               </div>
             </div>
