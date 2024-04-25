@@ -12,14 +12,20 @@
   height: 100%; */
 /* } */
 
-.container {
+.outer-container{
     background: url("../images/loginBg.png");
+    width: 100%;
+    height: 100vh;
+
+}
+
+.login-container {
 
   border-radius: 30px;
   z-index: 10;
   background: white;
   padding: 2em;
-  width: 500px; 
+  width: 30%; 
   margin: 0 auto;
 }
 
@@ -108,19 +114,21 @@ span {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .login-container  {
     padding: 2em;
+    width: 75%;
   }
   .inner-container{
-    width: 200px;
+    width: 100%;
 }
 }
 
 @media (max-width: 576px) {
-  .container {
+  .login-container  {
     padding: 1em;
+    width: 75%;
   }
   .inner-container{
-    width: 200px;
+    width: 100%;
 }
 }
