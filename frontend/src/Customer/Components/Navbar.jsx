@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <>
       <header className="header d-flex flex-column">
-        <div className={`header__top ${headerHidden ? "hide" : ""}`}>
+        {/* <div className={`header__top ${headerHidden ? "hide" : ""}`}>
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-md-7">
@@ -54,7 +54,7 @@ function Navbar() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <nav
           className={`${
             headerHidden ? "header__bottom_top" : "header__bottom"
@@ -118,8 +118,8 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="#">
-                      Home
+                    <Link className="nav-link" to="/contectus">
+                      Contact
                     </Link>
                   </li>
                 </ul>
@@ -142,6 +142,9 @@ function Navbar() {
                     />
                     <FontAwesomeIcon className="fs-2 px-3" icon={faUser} />
                   </div>
+                  <button className="btn btn-primary text-white">
+                   <Link className="text-white" to="/login">Login</Link>
+                  </button>
                 </form>
               </div>
             </div>

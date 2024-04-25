@@ -10,7 +10,7 @@ import React from "react";
 
 
 // import ShopCategory from "./ShopCategory";
-// import ProductCard from "./ProductCard";
+ import ProductCard from "./ProductCard";
 // import Pagination from "./Pagination";
 // import { Link } from "react-router-dom";
 
@@ -51,7 +51,9 @@ function Products() {
   return (
 
     <>
-    <h1>Products</h1></>
+    <h1>Products</h1>
+    <ProductCard/>
+    </>
     // <div>
     //   <div className="products container">
     //     Refined by
