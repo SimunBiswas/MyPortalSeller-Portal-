@@ -61,7 +61,8 @@ const Login = () => {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center flex-column w-90 ">
+   <div className="outer-container d-flex justify-content-center align-items-center">
+     <div className="login-container d-flex justify-content-center align-items-center flex-column">
       <h2 className="p-3 pt-4">{showLogin ? "LOGIN" : "SIGN-UP"}</h2>
       {error && <p className="error">{error}</p>}
       <form>
@@ -126,6 +127,7 @@ const Login = () => {
                 className="form-control"
                 id="newUsername"
                 value={newUsername}
+                placeholder="Enter your username"
                 onChange={(e) => setNewUsername(e.target.value)}
               />
             </div>
@@ -177,6 +179,7 @@ const Login = () => {
         )}
       </form>
     </div>
+   </div>
   );
 };
 

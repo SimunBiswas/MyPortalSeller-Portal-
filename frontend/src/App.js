@@ -7,7 +7,6 @@ import Aboutus from "./Customer/pages/AboutUs/Aboutus";
 import Contectus from "./Customer/pages/ContectUs/Contectus";
 import Orders from "./Customer/pages/Orders/Orders";
 import PrivecyandPolicy from "./Customer/pages/Privecy&Policy/PrivecyandPolicy";
-import ProductDeatil from "./Customer/pages/ProductDetails/ProductDeatil";
 import ReturnPolicy from "./Customer/pages/ReturnPolicy/ReturnPolicy";
 import ShippingInfo from "./Customer/pages/ShippingInfo/ShippingInfo";
 import TermAndCondition from "./Customer/pages/Terms&Conditions/TermAndCondition";
@@ -17,6 +16,7 @@ import Footer from "./Customer/Components/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Products from "./Customer/pages/Products/Products";
 import Login from "./Customer/Components/Login";
+import ProductDetail from "./Customer/Components/ProductDetail";
 
 function App() {
   return (
@@ -32,13 +32,14 @@ function AppContent() {
 
   return (
     <div
-      className={`d-flex flex-column min-vh-100 ${isLoginPage ? "login-page" : ""}`}
-      
+      className={`d-flex flex-column min-vh-100 ${
+        isLoginPage ? "login-page" : ""
+      }`}
     >
       {!isLoginPage && <Navbar />}
 
       <div
-        className={`flex-grow-1 ${ isLoginPage ? "max-vh-100" : "p-4 mt-2 "}`}
+        className={`flex-grow-1 ${isLoginPage ? "max-vh-100" : "p-4 mt-2 "}`}
       >
         <Routes>
           <Route path="/" element={<Home />} />
@@ -50,7 +51,7 @@ function AppContent() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/privecy&Policy" element={<PrivecyandPolicy />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/product/:id" element={<ProductDeatil />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/returnPolicy" element={<ReturnPolicy />} />
           <Route path="/shippingInfo" element={<ShippingInfo />} />
           <Route path="/terms&conditions" element={<TermAndCondition />} />

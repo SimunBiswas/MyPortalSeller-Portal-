@@ -103,7 +103,7 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/products">
+                    <Link className="nav-link" to="/product/:id">
                       Women
                     </Link>
                   </li>
@@ -125,19 +125,22 @@ function Navbar() {
                 </ul>
                 <form className="d-flex p-2" role="search">
                   <div className="d-flex m-1">
-                  <input
-                    className="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button className="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
+                    <input
+                      className="form-control me-2"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                    <button className="btn btn-outline-success" type="submit">
+                      Search
+                    </button>
                   </div>
                   <div className="d-flex justify-content-center align-items-center p-2">
-                  <FontAwesomeIcon className="fs-2 px-3" icon={faCartShopping} />
-                  <FontAwesomeIcon className="fs-2 px-3" icon={faUser} />
+                    <FontAwesomeIcon
+                      className="fs-2 px-3"
+                      icon={faCartShopping}
+                    />
+                    <FontAwesomeIcon className="fs-2 px-3" icon={faUser} />
                   </div>
                   <button className="btn btn-primary text-white">
                    <Link className="text-white" to="/login">Login</Link>
