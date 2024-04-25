@@ -1,4 +1,7 @@
-
+.main{
+  margin-top: 5px;
+  
+}
 .foot-panel{
   height: 100px;
   display: flex;
@@ -58,6 +61,9 @@ text-decoration: none;
 }
 /* For screens smaller than 576px (e.g., phones) */
 @media (max-width: 575.98px) {
+.main{
+  margin-bottom: 85px;
+}
 
 .foot-panel {
    
@@ -66,11 +72,10 @@ text-decoration: none;
   
   
 }
-  
-  .foot-panel > div {
-    flex: 0 1 calc(33.33% - 10px);
-    
-  }
+ .foot-panel div{
+  width: 30%;
+ } 
+ 
   .foot-panel div h4{
     font-size: 13px;
    
@@ -99,7 +104,7 @@ text-decoration: none;
       padding: 20px 0; /* Adjust padding for smaller screens */
       align-items: center; 
       padding-top: 2px;
-      padding-bottom: 85px;
+      padding-bottom: 80px;
       
     }
     
@@ -111,7 +116,11 @@ text-decoration: none;
 
 /* For screens between 576px and 991.98px (e.g., tablets) */
 @media (min-width: 576px) and (max-width: 991.98px) {
-  
+  .main{
+    margin-bottom: 80px;
+
+  }
+
   .foot-panel {
     flex-wrap: wrap;
     height: auto;
@@ -129,9 +138,12 @@ text-decoration: none;
     text-align: center;
    
   }
+  .foot-panel2 hr{
+    display: none;
+  }
   .foot-panel3 i {
       font-size: 3rem; /* Adjust icon size for medium-sized screens */
-      padding-bottom: 15px;/* Adjust margin for medium-sized screens */
+      padding-bottom: 5px;/* Adjust margin for medium-sized screens */
       align-items: center;
     }
 }

@@ -20,9 +20,9 @@ function Footer() {
   };
 
   return (
-    <div className="container-fluid pt-2 ">
-      <div className="container-fluid  ">
-      <div className="row foot-panel pt-3">
+    <div className="container-fluid main">
+      <div className="container-fluid foot-panel pt-2">
+      <div className="row  ">
         {[
           { icon: faTruckFast, text: "Fast Delivery" },
           { icon: faHandHoldingHeart, text: "100% Handpicked" },
@@ -37,7 +37,7 @@ function Footer() {
         ))}
       </div>
       </div>
-      <div className="container-fluid foot-panel2">
+      <div className="container-fluid foot-panel2 pt-3">
         {[
           ["ReVogue", ["Who We Are", "Join our Team", "We Respect Your Privacy", "Fees & Payments", "Returns & Refunds Policy", "Promotion Terms & Conditions"]],
           ["Help", ["Track Your Order", "Frequently Asked Question", "Returns", "Cancellations", "Payments", "Customer Care", "How Do I Redeem My Coupon"]],
